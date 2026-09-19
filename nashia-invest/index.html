@@ -28,7 +28,7 @@
     <!-- Featured image -->
     <div class="image-block fade-in">
       <!-- REPLACE: HERO IMAGE — swap the src path to your current featured photo. Can be a personal photo or a property photo. -->
-      <img src="/Users/nashia/Desktop/Websites/nashia-invest/IMG_1352.jpg" alt="Featured property or personal photo">
+      <img src="IMG_1352.jpg" alt="Featured property or personal photo">
     </div>
 
     <!-- Identifier line -->
@@ -81,10 +81,10 @@
   <div class="inquiries-popup" id="inquiries-popup">
     <button class="inquiries-close" id="inquiries-close">&times;</button>
     <!-- CONNECT THIS FORM — wire the form action to your email service, Formspree, or Netlify Forms. Automated email sequence handles qualification. -->
-    <form>
-      <input type="email" placeholder="your email" required>
-      <button type="submit">submit</button>
-    </form>https://formspree.io/f/xjykkzdd
+    <form action="https://formspree.io/f/xjykkzdd" method="POST">
+  <input type="email" name="email" placeholder="your email" required>
+  <button type="submit">submit</button>
+</form>
   </div>
 
   <script src="script.js"></script>
