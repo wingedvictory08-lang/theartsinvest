@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <a href="approach.html">approach</a>
+    <a href="index.html">home</a>
+  </nav>
+
+  <div class="page-wrapper">
+
+    <h1 class="page-title fade-in">Portfolio</h1>
+
+    <!-- Password gate -->
+    <div class="password-gate fade-in" id="password-gate">
+      <!-- CHANGE PASSWORD HERE — update the PASSWORD variable in script.js. Default: investor2026 -->
+      <input type="password" placeholder="enter password">
+      <button type="button">enter</button>
+      <p class="password-error">Incorrect password.</p>
+    </div>
+
+    <!-- Protected content (hidden until correct password) -->
+    <div class="protected-content" id="protected-content">
+
+      <!-- Spreadsheet embed -->
+      <div class="spreadsheet-container fade-in">
+        <!-- EMBED YOUR SPREADSHEET HERE — paste your Google Sheets embed iframe or other spreadsheet embed code in this container -->
+        <p style="text-align:center; opacity:0.35; padding:4rem 0; font-size:0.8rem; letter-spacing:0.06em;"><iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSkaMp9BbEMpcoqt7sT9fw3DSktGnEITktIPc_Hq2xU-8u-avgfddeB31hghQRLsOr87TwK0SRSuXhl/pubhtml?gid=929392400&amp;single=true&amp;widget=true&amp;headers=false"></iframe></p>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Entry 1 -->
+      <div class="entry fade-in">
+        <!-- REPLACE: ENTRY 1 TITLE AND TEXT — use for property descriptions, case studies, or deal analysis -->
+        <p class="entry-number">01</p>
+        <h3 class="entry-title">Wicker Park Multifamily — 4 Units</h3>
+        <p class="entry-text">Identified multifamily property in Wicker Park on September 2026, priced below comparable listings, with an estimated rental income of $x/mo. It went pending the next day. Final sale still pending.</p>
+      </div>
+
+      <!-- Entry 2 -->
+      <div class="entry fade-in">
+        <!-- REPLACE: ENTRY 2 TITLE AND TEXT — use for property descriptions, case studies, or deal analysis -->
+        <p class="entry-number">02</p>
+        <h3 class="entry-title">Wicker Park Walkup — 2 Units</h3>
+        <p class="entry-text">Value-add proposition identified September 2026, a unit generating existing income with an asking price that had room to negotiate downward. Listing received an offer the same day. Final sale pending.</p>
+      </div>
+
+      <!-- Entry 3 -->
+      <div class="entry fade-in">
+        <!-- REPLACE: ENTRY 3 TITLE AND TEXT — use for property descriptions, case studies, or deal analysis -->
+        <p class="entry-number">03</p>
+        <h3 class="entry-title">Mid-Rise Repositioning — 120 Units</h3>
+        <p class="entry-text">A mid-rise concrete construction asset in an infill urban location. The previous ownership group under-invested in the property during a period of significant neighborhood transformation. Our strategy involves a comprehensive renovation of unit interiors, lobby, and amenity spaces to capture the substantial rent premium commanded by recently delivered competing properties.</p>
+      </div>
+
+    </div>
+
+    <!-- Disclaimer (visible to everyone) -->
+    <footer class="site-footer fade-in" style="margin-top: 4rem;">
+      <p class="disclaimer">This site does not constitute an offer to sell or a solicitation of an offer to buy any securities. All investments involve risk.</p>
+    </footer>
+
+  </div>
+
+  <!-- Inquiries trigger -->
+  <div class="inquiries-trigger">
+    <a href="#" id="inquiries-open">inquiries</a>
+  </div>
+
+  <!-- Inquiries overlay -->
+  <div class="inquiries-overlay" id="inquiries-overlay"></div>
+
+  <!-- Inquiries popup -->
+  <div class="inquiries-popup" id="inquiries-popup">
+    <button class="inquiries-close" id="inquiries-close">&times;</button>
+    <!-- CONNECT THIS FORM — wire the form action to your email service, Formspree, or Netlify Forms. Automated email sequence handles qualification. -->
+    <form>
+      <input type="email" placeholder="your email" required>
+      <button type="submit">submit</button>
+    </form>https://formspree.io/f/xjykkzdd
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

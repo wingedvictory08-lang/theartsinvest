@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Approach</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <a href="index.html">home</a>
+    <a href="portfolio.html">portfolio</a>
+  </nav>
+
+  <div class="page-wrapper">
+
+    <h1 class="page-title fade-in">Approach</h1>
+
+    <!-- Section 1 -->
+    <div class="approach-section fade-in">
+      <!-- REPLACE: APPROACH SECTION 1 — e.g. your market thesis, why this asset class -->
+      <p class="approach-number">01</p>
+      <h2 class="approach-heading">Market Thesis</h2>
+      <p class="approach-text">Based in Chicago's strongest residential neighborhoods during a period of sustained demand and significant infrastructure investment, I prioritize well-located properties at prices below their value. Assets the broader market has overlooked — based on seller circumstances, extended listing periods, and untapped potential. The best opportunities can be found through research, not blind competition.</p>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="approach-section fade-in">
+      <!-- REPLACE: APPROACH SECTION 2 — e.g. your acquisition criteria, what you look for -->
+      <p class="approach-number">02</p>
+      <h2 class="approach-heading">Acquisition Criteria</h2>
+      <p class="approach-text">Every property I recommend has demonstrated appreciation and strong rental demand. Acquired at or below comparable sales, these verified rental-friendly, multi-family, mixed-use units often make the case for themselves. </p>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="approach-section fade-in">
+      <!-- REPLACE: APPROACH SECTION 3 — e.g. your value-add strategy, how you reposition properties -->
+      <p class="approach-number">03</p>
+      <h2 class="approach-heading">Value Creation</h2>
+      <p class="approach-text">I trust our returns because I assess them before closing. Where zoning permits, I evaluate repositioning opportunities that add value without additional risk at acquisition. Value creation starts before acquisition, and afterwards, we focus on what's controllable.</p>
+    </div>
+
+    <!-- Closing line -->
+    <div class="closing-line fade-in">
+      <!-- REPLACE: CLOSING LINE -->
+      <p>Interested in exploring an opportunity with me?</p>
+      <a href="#" id="approach-inquiries">get in touch &rarr;</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer fade-in">
+      <p class="disclaimer">This site does not constitute an offer to sell or a solicitation of an offer to buy any securities. All investments involve risk.</p>
+    </footer>
+
+  </div>
+
+  <!-- Inquiries trigger -->
+  <div class="inquiries-trigger">
+    <a href="#" id="inquiries-open">inquiries</a>
+  </div>
+
+  <!-- Inquiries overlay -->
+  <div class="inquiries-overlay" id="inquiries-overlay"></div>
+
+  <!-- Inquiries popup -->
+  <div class="inquiries-popup" id="inquiries-popup">
+    <button class="inquiries-close" id="inquiries-close">&times;</button>
+    <!-- CONNECT THIS FORM — wire the form action to your email service, Formspree, or Netlify Forms. Automated email sequence handles qualification. -->
+    <form>
+      <input type="email" placeholder="your email" required>
+      <button type="submit">submit</button>
+    </form>https://formspree.io/f/xjykkzdd
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var approachLink = document.getElementById('approach-inquiries');
+      if (approachLink) {
+        approachLink.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.getElementById('inquiries-overlay').classList.add('open');
+          document.getElementById('inquiries-popup').classList.add('open');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
