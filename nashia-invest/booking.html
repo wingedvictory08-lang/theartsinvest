@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <a href="index.html">home</a>
+    <a href="approach.html">approach</a>
+    <a href="portfolio.html">portfolio</a>
+    <a href="booking.html" class="nav-booking">booking</a>
+  </nav>
+
+  <div class="page-wrapper">
+
+    <h1 class="page-title booking-title fade-in">Booking</h1>
+    <div class="hero-line fade-in"></div>
+
+    <p class="booking-intro fade-in">
+      <!-- REPLACE: BOOKING INTRO TEXT -->
+      submit an inquiry below. once received, you'll be connected to schedule a consultation.
+    </p>
+
+    <!-- CONNECT THIS FORM — wire the form action to Formspree or Netlify Forms. Replace the action URL with your endpoint. -->
+    <form class="booking-form fade-in" id="booking-form" action="https://formspree.io/f/xjykkzdd" method="POST">
+      <input type="text" name="name" placeholder="name" required>
+      <input type="email" name="email" placeholder="email" required>
+      <input type="text" name="organization" placeholder="organization or project name">
+
+      <!-- Service multi-select — options are populated from SERVICE_CATALOGUE in the script below -->
+      <div class="service-select" id="service-select">
+        <button type="button" class="service-select-toggle" id="service-select-toggle" aria-haspopup="listbox" aria-expanded="false">
+          <span class="service-select-label is-placeholder" id="service-select-label">service</span>
+          <span class="service-select-caret" aria-hidden="true"></span>
+        </button>
+        <ul class="service-select-menu" id="service-select-menu" role="listbox" aria-multiselectable="true"></ul>
+        <div class="service-chips" id="service-chips"></div>
+        <input type="hidden" name="services" id="service-value">
+      </div>
+
+      <input type="text" name="budget" placeholder="budget range">
+      <input type="text" name="timeline" placeholder="ideal timeline">
+      <input type="url" name="website" placeholder="current website url (if applicable)">
+
+      <button type="submit" class="booking-submit">submit inquiry</button>
+      <p class="booking-error" id="booking-error">something went wrong. please try again.</p>
+    </form>
+
+    <!-- Success message (shown after submit) -->
+    <div class="booking-success" id="booking-success">
+      <h2 class="booking-success-title">success!</h2>
+      <p class="booking-success-text">you'll hear from me soon.</p>
+      <!-- REPLACE: CALENDLY LINK — paste your Calendly URL here -->
+      <a href="https://calendly.com/your-link" target="_blank" rel="noopener">schedule a consultation &rarr;</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer fade-in">
+      <p class="disclaimer">This site does not constitute an offer to sell or a solicitation of an offer to buy any securities. All investments involve risk.</p>
+    </footer>
+
+  </div>
+
+  <!-- Inquiries trigger -->
+  <div class="inquiries-trigger">
+    <a href="#" id="inquiries-open">inquiries</a>
+  </div>
+
+  <!-- Inquiries overlay -->
+  <div class="inquiries-overlay" id="inquiries-overlay"></div>
+
+  <!-- Inquiries popup -->
+  <div class="inquiries-popup" id="inquiries-popup">
+    <button class="inquiries-close" id="inquiries-close">&times;</button>
+    <!-- CONNECT THIS FORM — wire the form action to your email service, Formspree, or Netlify Forms. Automated email sequence handles qualification. -->
+    <form action="https://formspree.io/f/xjykkzdd" method="POST">
+  <input type="email" name="email" placeholder="your email" required>
+  <button type="submit">submit</button>
+</form>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    // EDIT YOUR SERVICE CATALOGUE HERE — add or remove options anytime without touching the rest of the code
+    var SERVICE_CATALOGUE = ["Website Build", "Portfolio Site", "Landing Page", "Investor Portal", "Custom Project"];
+
+    document.addEventListener('DOMContentLoaded', function () {
+
+      // ── Service multi-select ──
+      var select = document.getElementById('service-select');
+      var toggle = document.getElementById('service-select-toggle');
+      var label = document.getElementById('service-select-label');
+      var menu = document.getElementById('service-select-menu');
+      var chips = document.getElementById('service-chips');
+      var hiddenValue = document.getElementById('service-value');
+      var selected = [];
+
+      SERVICE_CATALOGUE.forEach(function (service) {
+        var li = document.createElement('li');
+        li.setAttribute('role', 'option');
+        li.setAttribute('aria-selected', 'false');
+        var optLabel = document.createElement('label');
+        var box = document.createElement('input');
+        box.type = 'checkbox';
+        box.value = service;
+        box.addEventListener('change', function () {
+          if (box.checked) {
+            selected.push(service);
+          } else {
+            selected = selected.filter(function (s) { return s !== service; });
+          }
+          li.setAttribute('aria-selected', box.checked ? 'true' : 'false');
+          renderSelection();
+        });
+        optLabel.appendChild(box);
+        optLabel.appendChild(document.createTextNode(service));
+        li.appendChild(optLabel);
+        menu.appendChild(li);
+      });
+
+      function renderSelection() {
+        hiddenValue.value = selected.join(', ');
+        if (selected.length) {
+          label.textContent = selected.join(', ');
+          label.classList.remove('is-placeholder');
+        } else {
+          label.textContent = 'service';
+          label.classList.add('is-placeholder');
+        }
+        chips.innerHTML = '';
+        selected.forEach(function (service) {
+          var chip = document.createElement('button');
+          chip.type = 'button';
+          chip.className = 'service-chip';
+          chip.setAttribute('aria-label', 'remove ' + service);
+          chip.appendChild(document.createTextNode(service));
+          var x = document.createElement('span');
+          x.innerHTML = '&times;';
+          chip.appendChild(x);
+          chip.addEventListener('click', function () {
+            menu.querySelectorAll('input[type="checkbox"]').forEach(function (box) {
+              if (box.value === service && box.checked) {
+                box.checked = false;
+                box.dispatchEvent(new Event('change'));
+              }
+            });
+          });
+          chips.appendChild(chip);
+        });
+      }
+
+      function setOpen(open) {
+        select.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+
+      toggle.addEventListener('click', function () {
+        setOpen(!select.classList.contains('open'));
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!select.contains(e.target)) setOpen(false);
+      });
+
+      select.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          setOpen(false);
+          toggle.focus();
+        }
+      });
+
+      // ── Form submission ──
+      var form = document.getElementById('booking-form');
+      var success = document.getElementById('booking-success');
+      var errorMsg = document.getElementById('booking-error');
+      var submitBtn = form.querySelector('.booking-submit');
+
+      function showSuccess() {
+        form.style.display = 'none';
+        success.classList.add('show', 'fade-in');
+        void success.offsetWidth; // force reflow so the fade-in transition runs
+        success.classList.add('visible');
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        submitBtn.disabled = true;
+        errorMsg.classList.remove('show');
+
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        }).then(function (response) {
+          if (!response.ok) throw new Error('Submission failed');
+          showSuccess();
+        }).catch(function () {
+          submitBtn.disabled = false;
+          errorMsg.classList.add('show');
+        });
+      });
+
+    });
+  </script>
+</body>
+</html>

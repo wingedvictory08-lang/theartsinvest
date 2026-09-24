@@ -574,6 +574,305 @@ body {
   opacity: 0.6;
 }
 
+/* ── Booking nav pill ── */
+
+.site-nav a.nav-booking {
+  color: var(--bg);
+  background-color: var(--text);
+  padding: 0.25rem 0.75rem;
+  margin: -0.25rem 0;
+  border-radius: 999px;
+  opacity: 0.9;
+}
+
+.site-nav a.nav-booking:hover {
+  opacity: 1;
+}
+
+/* ── Booking page ── */
+
+.page-title.booking-title {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.booking-intro {
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  opacity: 0.55;
+  max-width: 440px;
+  margin: 0 auto 4rem;
+}
+
+.booking-form {
+  max-width: 420px;
+  margin: 0 auto 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.booking-form input,
+.service-select-toggle {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  background: var(--white);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.booking-form input::placeholder {
+  color: var(--gray-light);
+  opacity: 1;
+}
+
+.booking-form input:focus,
+.service-select-toggle:focus-visible,
+.service-select.open .service-select-toggle {
+  box-shadow: 0 0 0 3px rgba(201, 185, 154, 0.18);
+}
+
+/* Service multi-select */
+
+.service-select {
+  position: relative;
+}
+
+.service-select-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.service-select-label {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.service-select-label.is-placeholder {
+  color: var(--gray-light);
+}
+
+.service-select-caret {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-right: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+.service-select.open .service-select-caret {
+  transform: translateY(1px) rotate(-135deg);
+}
+
+.service-select-menu {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  left: 0;
+  right: 0;
+  z-index: 50;
+  list-style: none;
+  background: var(--white);
+  border: 1px solid var(--gold);
+  border-radius: 4px;
+  padding: 0.4rem 0;
+  box-shadow: 0 12px 48px rgba(27, 42, 74, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+}
+
+.service-select.open .service-select-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.service-select-menu label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+  color: var(--text);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.service-select-menu label:hover {
+  background-color: rgba(201, 185, 154, 0.12);
+}
+
+.service-select-menu input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  flex-shrink: 0;
+  width: 13px;
+  height: 13px;
+  padding: 0;
+  border: 1px solid var(--gold);
+  border-radius: 2px;
+  background: var(--white);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.service-select-menu input[type="checkbox"]:checked {
+  background-color: var(--gold);
+  box-shadow: inset 0 0 0 2px var(--white);
+}
+
+.service-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+.service-chips:empty {
+  display: none;
+}
+
+.service-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.25rem 0.5rem 0.25rem 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.service-chip:hover {
+  background-color: rgba(201, 185, 154, 0.15);
+}
+
+.service-chip span {
+  opacity: 0.45;
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+.booking-submit {
+  margin-top: 0.8rem;
+  padding: 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
+  color: var(--bg);
+  background-color: var(--text);
+  border: 1px solid var(--text);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.booking-submit:hover {
+  background-color: #2A3B5E;
+  border-color: var(--gold);
+}
+
+.booking-submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.booking-error {
+  font-size: 0.75rem;
+  color: #c0392b;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.booking-error.show {
+  opacity: 0.7;
+}
+
+.booking-success {
+  display: none;
+  text-align: center;
+  margin: 0 auto 6rem;
+}
+
+.booking-success.show {
+  display: block;
+}
+
+.booking-success-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+}
+
+.booking-success-text {
+  font-size: 0.9rem;
+  font-weight: 300;
+  opacity: 0.6;
+  margin-bottom: 2.5rem;
+}
+
+.booking-success a {
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  text-decoration: none;
+  opacity: 0.6;
+  position: relative;
+  transition: opacity 0.3s ease;
+}
+
+.booking-success a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--gold);
+  transition: width 0.3s ease;
+}
+
+.booking-success a:hover {
+  opacity: 1;
+}
+
+.booking-success a:hover::after {
+  width: 100%;
+}
+
 /* ── Responsive ── */
 
 @media (max-width: 600px) {
