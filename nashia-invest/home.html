@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Acquisitions</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Landing page ── */
+
+    .landing {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 4rem 2rem;
+      overflow: hidden;
+    }
+
+    .landing-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: url('studio-bg.jpg') center / cover no-repeat;
+    }
+
+    .landing-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 240, 0.82);
+    }
+
+    .landing-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+    }
+
+    .landing-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      color: var(--text);
+      margin-bottom: 3rem;
+    }
+
+    .landing-line {
+      width: 50px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 3rem;
+    }
+
+    .landing-description {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--text);
+      opacity: 0.7;
+      margin-bottom: 4rem;
+    }
+
+    .landing-description p {
+      margin-bottom: 1.4rem;
+    }
+
+    .landing-description p:last-child {
+      margin-bottom: 0;
+    }
+
+    .landing-links {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+    }
+
+    .landing-links a {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      text-decoration: none;
+      opacity: 0.65;
+      position: relative;
+      transition: opacity 0.4s ease;
+      text-transform: lowercase;
+    }
+
+    .landing-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.4s ease;
+    }
+
+    .landing-links a:hover {
+      opacity: 1;
+    }
+
+    .landing-links a:hover::after {
+      width: 100%;
+    }
+
+    /* ── Landing fade-in sequencing ── */
+
+    .landing-fade {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: landingIn 0.9s ease forwards;
+    }
+
+    .landing-fade:nth-child(1) { animation-delay: 0.15s; }
+    .landing-fade:nth-child(2) { animation-delay: 0.4s; }
+    .landing-fade:nth-child(3) { animation-delay: 0.6s; }
+    .landing-fade:nth-child(4) { animation-delay: 0.85s; }
+
+    @keyframes landingIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .landing {
+        padding: 3rem 1.5rem;
+      }
+
+      .landing-links {
+        gap: 2.5rem;
+      }
+
+      .landing-links a {
+        font-size: 1.1rem;
+      }
+
+      .landing-description {
+        font-size: 0.82rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="landing">
+    <div class="landing-bg"></div>
+
+    <div class="landing-content">
+      <h1 class="landing-title landing-fade">Studio Acquisitions</h1>
+
+      <div class="landing-line landing-fade"></div>
+
+      <div class="landing-description landing-fade">
+        <p>Studio Acquisitions is an independent curatorial practice. I source, acquire, and curate fine art, vintage fashion, and jewelry. And when the project calls for it, the spaces they belong in.</p>
+        <p>My work's argument is swift: taste is a form of self-knowledge and perspective, and acquisition without it is aimless. Private sourcing, curatorial consultations, editorial writing, and spatial projects all draw from the same practice — knowing what you're searching for, researching the market, and identifying its value.</p>
+      </div>
+
+      <div class="landing-links landing-fade">
+        <a href="index.html">invest</a>
+        <a href="https://portfolio.studioacquisitions.studio/#home">curate</a>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
