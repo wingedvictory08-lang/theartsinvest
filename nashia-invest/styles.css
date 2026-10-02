@@ -873,6 +873,29 @@ body {
   width: 100%;
 }
 
+/* ── Back to landing page link ── */
+
+.site-home-link {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 2rem 2.5rem;
+  z-index: 100;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  text-decoration: none;
+  color: var(--text);
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.site-home-link:hover {
+  opacity: 1;
+}
+
 /* ── Responsive ── */
 
 @media (max-width: 600px) {
@@ -921,6 +944,13 @@ body {
   .inquiries-trigger {
     right: 1.5rem;
     bottom: 1.5rem;
+  }
+
+  .site-home-link {
+    top: auto;
+    bottom: 0;
+    padding: 1.5rem;
+    font-size: 0.6rem;
   }
 
   .spreadsheet-container {
