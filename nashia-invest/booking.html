@@ -23,11 +23,11 @@
 
     <p class="booking-intro fade-in">
       <!-- REPLACE: BOOKING INTRO TEXT -->
-      submit an inquiry below. once received, you'll be connected to schedule a consultation.
+      submit a product request below
     </p>
 
     <!-- CONNECT THIS FORM — wire the form action to Formspree or Netlify Forms. Replace the action URL with your endpoint. -->
-    <form class="booking-form fade-in" id="booking-form" action="https://formspree.io/f/xjykkzdd" method="POST">
+    <form class="booking-form fade-in" id="booking-form" action="https://formspree.io/f/xgavybre" method="POST">
       <input type="text" name="name" placeholder="name" required>
       <input type="email" name="email" placeholder="email" required>
       <input type="text" name="organization" placeholder="organization or project name">
@@ -47,7 +47,7 @@
       <input type="text" name="timeline" placeholder="ideal timeline">
       <input type="url" name="website" placeholder="current website url (if applicable)">
 
-      <button type="submit" class="booking-submit">submit inquiry</button>
+      <button type="submit" class="booking-submit">submit a product inquiry</button>
       <p class="booking-error" id="booking-error">something went wrong. please try again.</p>
     </form>
 
@@ -56,7 +56,7 @@
       <h2 class="booking-success-title">success!</h2>
       <p class="booking-success-text">you'll hear from me soon.</p>
       <!-- REPLACE: CALENDLY LINK — paste your Calendly URL here -->
-      <a href="https://calendly.com/your-link" target="_blank" rel="noopener">schedule a consultation &rarr;</a>
+      <a href="https://calendly.com/app/scheduling/meeting_types/user/me" target="_blank" rel="noopener">schedule a web design consultation &rarr;</a>
     </div>
 
     <!-- Footer -->
@@ -87,7 +87,7 @@
   <script src="script.js"></script>
   <script>
     // EDIT YOUR SERVICE CATALOGUE HERE — add or remove options anytime without touching the rest of the code
-    var SERVICE_CATALOGUE = ["Website Build", "Portfolio Site", "Landing Page", "Investor Portal", "Custom Project"];
+    var SERVICE_CATALOGUE = ["Custom Landing Page — $350", "Custom Website 3–4 Pages — $850", "Full Site + Copy — $1,200 ", "Investor Portal", "Digital Planner — $39", "iPad Planner — $25"];
 
     document.addEventListener('DOMContentLoaded', function () {
 
