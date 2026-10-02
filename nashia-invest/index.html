@@ -109,6 +109,26 @@
       width: 100%;
     }
 
+    /* small note hung under a link without shifting the row */
+    .landing-link-item {
+      position: relative;
+    }
+
+    .landing-note {
+      position: absolute;
+      top: calc(100% + 0.9rem);
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+      color: var(--bg);
+      text-shadow: 0 1px 3px rgba(27, 42, 74, 0.95), 0 0 10px rgba(27, 42, 74, 0.8), 0 0 24px rgba(27, 42, 74, 0.6);
+      opacity: 0.75;
+    }
+
     /* ── Landing fade-in sequencing ── */
 
     .landing-fade {
@@ -149,6 +169,10 @@
       .landing-description {
         font-size: 0.92rem;
       }
+
+      .landing-note {
+        font-size: 0.6rem;
+      }
     }
   </style>
 </head>
@@ -168,7 +192,10 @@
       </div>
 
       <div class="landing-links landing-fade">
-        <a href="https://portfolio.studioacquisitions.studio/#home">curate</a>
+        <div class="landing-link-item">
+          <a href="https://portfolio.studioacquisitions.studio/#home">curate</a>
+          <span class="landing-note">Digital Collection coming soon</span>
+        </div>
         <a href="invest.html">invest</a>
       </div>
     </div>
