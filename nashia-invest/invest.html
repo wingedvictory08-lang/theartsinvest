@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invest</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <a href="approach.html">approach</a>
+    <a href="portfolio.html">portfolio</a>
+    <a href="booking.html" class="nav-booking">booking</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero fade-in">
+    <h1 class="hero-title">Invest</h1>
+    <div class="hero-line"></div>
+    <!-- REPLACE: TAGLINE -->
+    <p class="hero-tagline">multifamily co-investment. value-add repositioning. long-term wealth.</p>
+  </section>
+
+  <!-- Below the fold -->
+  <div class="page-wrapper">
+
+    <!-- Featured image -->
+    <div class="image-block fade-in">
+      <!-- REPLACE: HERO IMAGE — swap the src path to your current featured photo. Can be a personal photo or a property photo. -->
+      <img src="IMG_1352.jpg" alt="Featured property or personal photo">
+    </div>
+
+    <!-- Identifier line -->
+    <p class="identifier-line fade-in">
+      <!-- REPLACE: ABOUT LINE — decide what goes here. Could be your name and location, a one-line bio, a philosophy statement, or nothing at all. Replace or delete as needed. -->
+      Based in Chicago, IL — private real estate investor.
+    </p>
+
+    <!-- Summary -->
+    <div class="summary fade-in">
+      <!-- REPLACE: SUMMARY PARAGRAPH 1 -->
+      <p>Acquire and co-invest in under-valued multifamily and mixed-use properties in Chicago's highest-demand neighborhoods — Wicker Park, West Loop, Pilsen, and surrounding corridors positioned for long-term appreciation. My approach is research-intensive: I look for assets where seller motivation, market mispricing, and zoning optionality create opportunities worth pursuing.</p>
+      <!-- REPLACE: SUMMARY PARAGRAPH 2 -->
+      <p>I challenge every opportunity's assumptions through underwriting them against comparable sales, verified rental income, and neigborhood-level growth indicators. I prioritize research first, and acquisitions we can co-invest in — you should have a reliable set of eyes to trust. I believe in every property I recommend, and co-invest in it too.</p>
+
+      <!-- REPLACE: SUMMARY PARAGRAPH 3 -->
+      <p>The relationships are long-term, and I handle the minutiae to free my partners' time. I rely on straightforward communication and shared goals — investing in properties with potential. </p>
+    </div>
+
+    <!-- Links -->
+    <div class="links-row fade-in">
+      <a href="portfolio.html">work with me &rarr;</a>
+      <a href="approach.html">my approach &rarr;</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer fade-in">
+      <p class="footer-contact">
+        <!-- REPLACE: EMAIL -->
+        <a href="mailto:momentsolomon@gmail.com">momentsolomon@gmail.com</a>
+      </p>
+      <p class="footer-contact">
+        <!-- REPLACE: PHONE NUMBER -->
+        (334) 718-2410
+      </p>
+      <p class="disclaimer">This site does not constitute an offer to sell or a solicitation of an offer to buy any securities. All investments involve risk.</p>
+    </footer>
+
+  </div>
+
+  <!-- Inquiries trigger -->
+  <div class="inquiries-trigger">
+    <a href="#" id="inquiries-open">inquiries</a>
+  </div>
+
+  <!-- Inquiries overlay -->
+  <div class="inquiries-overlay" id="inquiries-overlay"></div>
+
+  <!-- Inquiries popup -->
+  <div class="inquiries-popup" id="inquiries-popup">
+    <button class="inquiries-close" id="inquiries-close">&times;</button>
+    <!-- CONNECT THIS FORM — wire the form action to your email service, Formspree, or Netlify Forms. Automated email sequence handles qualification. -->
+    <form action="https://formspree.io/f/xjykkzdd" method="POST">
+  <input type="email" name="email" placeholder="your email" required>
+  <button type="submit">submit</button>
+</form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
