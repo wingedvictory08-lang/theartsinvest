@@ -873,6 +873,14 @@ body {
   width: 100%;
 }
 
+.booking-intake {
+  margin-bottom: 3rem;
+}
+
+.booking-intake .booking-success-text {
+  margin-bottom: 1.2rem;
+}
+
 /* ── Back to landing page link ── */
 
 .site-home-link {
