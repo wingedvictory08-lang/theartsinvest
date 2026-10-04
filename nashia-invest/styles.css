@@ -881,6 +881,21 @@ body {
   margin-bottom: 1.2rem;
 }
 
+.booking-intake-note {
+  font-size: 0.78rem;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  opacity: 0.6;
+  margin-top: 1.2rem;
+}
+
+.booking-success .booking-intake-note a {
+  font-size: inherit;
+  font-weight: 400;
+  letter-spacing: inherit;
+  opacity: 1;
+}
+
 /* ── Back to landing page link ── */
 
 .site-home-link {
