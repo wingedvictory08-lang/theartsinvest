@@ -109,6 +109,15 @@
       width: 100%;
     }
 
+    /* second row: one smaller link centred under curate / invest */
+    .landing-secondary {
+      margin-top: 2.5rem;
+    }
+
+    .landing-secondary a {
+      font-size: 1.05rem;
+    }
+
     /* small note hung under a link without shifting the row */
     .landing-link-item {
       position: relative;
@@ -141,6 +150,7 @@
     .landing-fade:nth-child(2) { animation-delay: 0.4s; }
     .landing-fade:nth-child(3) { animation-delay: 0.6s; }
     .landing-fade:nth-child(4) { animation-delay: 0.85s; }
+    .landing-fade:nth-child(5) { animation-delay: 1.05s; }
 
     @keyframes landingIn {
       to {
@@ -173,6 +183,10 @@
       .landing-note {
         font-size: 0.6rem;
       }
+
+      .landing-secondary a {
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
@@ -192,11 +206,15 @@
       </div>
 
       <div class="landing-links landing-fade">
+        <a href="https://studioacquisitions.substack.com/?utm_campaign=pub&amp;utm_medium=web">curate</a>
+        <a href="invest.html">invest</a>
+      </div>
+
+      <div class="landing-links landing-secondary landing-fade">
         <div class="landing-link-item">
-          <a href="https://portfolio.studioacquisitions.studio/#home">curate</a>
+          <a href="https://portfolio.studioacquisitions.studio/#home">weekly artist case studies</a>
           <span class="landing-note">Digital Collection coming soon</span>
         </div>
-        <a href="invest.html">invest</a>
       </div>
     </div>
   </section>
