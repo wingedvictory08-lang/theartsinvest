@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Studio Acquisitions FAQ: private sourcing of fine art, fashion, and jewelry, curatorial consultations, web design, and how curation and sourcing connect.">
+  <title>FAQ: Private Sourcing &amp; Art Curation | Studio Acquisitions</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── FAQ page: same photo, type and shadowing as the landing page ── */
+
+    .faq-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background: url('studio-bg.jpg') center bottom / cover no-repeat;
+    }
+
+    .faq-page {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 8rem 2rem 7rem;
+      color: var(--bg);
+      text-shadow: 0 1px 3px rgba(27, 42, 74, 0.95), 0 0 10px rgba(27, 42, 74, 0.8), 0 0 24px rgba(27, 42, 74, 0.6);
+    }
+
+    .faq-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      line-height: 1.2;
+      text-align: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .faq-subtitle {
+      text-align: center;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: lowercase;
+      opacity: 0.85;
+    }
+
+    .faq-line {
+      width: 50px;
+      height: 1px;
+      background: var(--gold);
+      margin: 2.5rem auto 4rem;
+    }
+
+    .faq-item {
+      margin-bottom: 3.5rem;
+    }
+
+    .faq-number {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+
+    .faq-question {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      font-weight: 400;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+    }
+
+    .faq-answer p {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.9;
+      margin-bottom: 1rem;
+    }
+
+    .faq-answer p:last-child {
+      margin-bottom: 0;
+    }
+
+    .faq-answer a,
+    .faq-links a {
+      color: var(--bg);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+      transition: opacity 0.3s ease;
+    }
+
+    .faq-answer a:hover,
+    .faq-links a:hover {
+      opacity: 0.75;
+    }
+
+    .faq-links {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 4.5rem;
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      letter-spacing: 0.04em;
+      text-transform: lowercase;
+    }
+
+    .faq-links a {
+      border-bottom-color: transparent;
+    }
+
+    .faq-links a:hover {
+      border-bottom-color: var(--gold);
+      opacity: 1;
+    }
+
+    .faq-owner {
+      margin-top: 5rem;
+      text-align: center;
+      font-size: 0.6rem;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      opacity: 0.7;
+    }
+
+    .faq-fade {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: faqIn 0.9s ease forwards;
+    }
+
+    .faq-fade:nth-child(1) { animation-delay: 0.15s; }
+    .faq-fade:nth-child(2) { animation-delay: 0.3s; }
+    .faq-fade:nth-child(3) { animation-delay: 0.45s; }
+    .faq-fade:nth-child(n+4) { animation-delay: 0.6s; }
+
+    @keyframes faqIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .faq-bg {
+        background-size: auto 200%;
+      }
+
+      .faq-page {
+        padding: 6.5rem 1.5rem 5rem;
+      }
+
+      .faq-question {
+        font-size: 1.25rem;
+      }
+
+      .faq-answer p {
+        font-size: 0.92rem;
+      }
+
+      .faq-links {
+        gap: 2.5rem;
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+
+  <!-- Structured data (schema.org JSON-LD) for search engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "FAQPage",
+        "@id": "https://studioacquisitions.studio/faq.html#webpage",
+        "url": "https://studioacquisitions.studio/faq.html",
+        "name": "FAQ: Private Sourcing & Art Curation | Studio Acquisitions",
+        "description": "Studio Acquisitions FAQ: private sourcing of fine art, fashion, and jewelry, curatorial consultations, web design, and how curation and sourcing connect.",
+        "isPartOf": {
+          "@id": "https://studioacquisitions.studio/#website"
+        },
+        "about": {
+          "@id": "https://studioacquisitions.studio/#business"
+        },
+        "publisher": {
+          "@id": "https://studioacquisitions.studio/#business"
+        },
+        "inLanguage": "en-US",
+        "breadcrumb": {
+          "@id": "https://studioacquisitions.studio/faq.html#breadcrumb"
+        },
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Studio Acquisitions?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Studio Acquisitions is the independent curatorial practice of Moment Solomon. I source, acquire, and curate fine art, vintage fashion, and jewelry — and, when the project calls for it, the spaces they belong in. The practice is based in Chicago and works with clients remotely."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What services do you offer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Private sourcing of fine art, vintage fashion, jewelry, and objects; curatorial consultations; editorial writing; spatial projects; bespoke web design; and, on the real estate side, multifamily co-investment in Chicago. Each one starts from the same place: knowing what you're searching for, researching the market, and identifying the value of what you find."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do art curation and private sourcing fit under the same practice?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "They're two halves of one act. Curating is deciding what belongs — reading a piece, a collection, or a room and understanding why it works. Sourcing is going out and finding it, then acquiring it at the right price. Taste is a form of self-knowledge and perspective, and acquisition without it is aimless. Studio Acquisitions holds both sides of the work, so every find is researched, placed in context, and chosen for a reason."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What can you source for me?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Fine art, vintage fashion, jewelry, and objects — anything you can describe with intent. When the project calls for it, sourcing can extend to the spaces they belong in."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does private sourcing work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Submit an inquiry on the booking page and select Private Sourcing. I'll follow up to talk through what you're looking for and how we'll approach the search."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does a curatorial practice design websites?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Curation is about how things are seen, and a website is often the first room someone walks into. I build bespoke sites with the same attention to presentation: custom landing pages, multi-page sites, full sites with copy, and investor portals. You can request a site through the booking page."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is the real estate side part of Studio Acquisitions?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The investment practice applies the same discipline to property: researching under-valued multifamily and mixed-use buildings in Chicago neighborhoods like Wicker Park, West Loop, and Pilsen, underwriting them carefully, and co-investing alongside partners."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where can I read your writing or see your work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Essays on taste, style, and acquisition are published on the Studio Acquisitions Substack. Weekly artist case studies are on the portfolio site, and a Digital Collection is coming soon."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I get started?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Submit an inquiry through the booking page, or email contactme@studioacquisitions.studio. Studio Acquisitions is currently accepting clients."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://studioacquisitions.studio/faq.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Studio Acquisitions",
+            "item": "https://studioacquisitions.studio/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "FAQ",
+            "item": "https://studioacquisitions.studio/faq.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav-left">
+    <a href="index.html">home</a>
+  </nav>
+  <nav class="site-nav landing-nav">
+    <a href="booking.html" class="nav-booking">booking</a>
+  </nav>
+
+  <div class="faq-bg" aria-hidden="true"></div>
+
+  <main class="faq-page">
+    <header class="faq-fade">
+      <h1 class="faq-title">Frequently Asked Questions</h1>
+      <p class="faq-subtitle">studio acquisitions &middot; private sourcing &amp; curation</p>
+    </header>
+    <div class="faq-line faq-fade"></div>
+
+    <!-- EDIT THE FAQ HERE — each question is one <article>. Keep the JSON-LD
+         block in the <head> in sync if you change the wording. -->
+    <section class="faq-list">
+      <article class="faq-item faq-fade">
+        <p class="faq-number">01</p>
+        <h2 class="faq-question">What is Studio Acquisitions?</h2>
+        <div class="faq-answer">
+          <p>Studio Acquisitions is the independent curatorial practice of Moment Solomon. I source, acquire, and curate fine art, vintage fashion, and jewelry — and, when the project calls for it, the spaces they belong in.</p>
+          <p>The practice is based in Chicago and works with clients remotely.</p>
+        </div>
+      </article>
+      <article class="faq-item faq-fade">
+        <p class="faq-number">02</p>
+        <h2 class="faq-question">What services do you offer?</h2>
+        <div class="faq-answer">
+          <p>Private sourcing of fine art, vintage fashion, jewelry, and objects; curatorial consultations; editorial writing; spatial projects; bespoke web design; and, on the real estate side, multifamily co-investment in Chicago.</p>
+          <p>Each one starts from the same place: knowing what you're searching for, researching the market, and identifying the value of what you find.</p>
+        </div>
+      </article>
+      <article class="faq-item faq-fade">
+        <p class="faq-number">03</p>
+        <h2 class="faq-question">How do art curation and private sourcing fit under the same practice?</h2>
+        <div class="faq-answer">
+          <p>They're two halves of one act. Curating is deciding what belongs — reading a piece, a collection, or a room and understanding why it works. Sourcing is going out and finding it, then acquiring it at the right price.</p>
+          <p>Taste is a form of self-knowledge and perspective, and acquisition without it is aimless. Studio Acquisitions holds both sides of the work, so every find is researched, placed in context, and chosen for a reason.</p>
+        </div>
+      </article>
+      <article class="faq-item faq-fade">
+        <p class="faq-number">04</p>
+        <h2 class="faq-question">What can you source for me?</h2>
+        <div class="faq-answer">
+          <p>Fine art, vintage fashion, jewelry, and objects — anything you can describe with intent. When the project calls for it, sourcing can extend to the spaces they belong in.</p>
+        </div>
+      </article>
+      <article class="faq-item faq-fade">
+        <p class="faq-number">05</p>
+        <h2 class="faq-question">How does private sourcing work?</h2>
+        <div class="faq-answer">
+          <p>Submit an inquiry on the <a href="booking.html">booking page</a> and select Private Sourcing. I'll follow up to talk through what you're looking for and how we'll approach the search.</p>
+        </div>
+      </article>
+      <article class="faq-item faq-fade">
+        <p class="faq-number">06</p>
+        <h2 class="faq-question">Why does a curatorial practice design websites?</h2>
+        <div class="faq-answer">
+          <p>Curation is about how things are seen, and a website is often the first room someone walks into. I build bespoke sites with the same attention to presentation: custom landing pages, multi-page sites, full sites with copy, and investor portals. You can request a site through the <a href="booking.html">booking page</a>.</p>
+        </div>
+      </article>
+      <article class="faq-item faq-fade">
+        <p class="faq-number">07</p>
+        <h2 class="faq-question">Is the real estate side part of Studio Acquisitions?</h2>
+        <div class="faq-answer">
+          <p>Yes. The <a href="invest.html">investment practice</a> applies the same discipline to property: researching under-valued multifamily and mixed-use buildings in Chicago neighborhoods like Wicker Park, West Loop, and Pilsen, underwriting them carefully, and co-investing alongside partners.</p>
+        </div>
+      </article>
+      <article class="faq-item faq-fade">
+        <p class="faq-number">08</p>
+        <h2 class="faq-question">Where can I read your writing or see your work?</h2>
+        <div class="faq-answer">
+          <p>Essays on taste, style, and acquisition are published on the <a href="https://studioacquisitions.substack.com/" target="_blank" rel="noopener">Studio Acquisitions Substack</a>. <a href="https://portfolio.studioacquisitions.studio/#home" target="_blank" rel="noopener">Weekly artist case studies</a> are on the portfolio site, and a Digital Collection is coming soon.</p>
+        </div>
+      </article>
+      <article class="faq-item faq-fade">
+        <p class="faq-number">09</p>
+        <h2 class="faq-question">How do I get started?</h2>
+        <div class="faq-answer">
+          <p>Submit an inquiry through the <a href="booking.html">booking page</a>, or email <a href="mailto:contactme@studioacquisitions.studio">contactme@studioacquisitions.studio</a>. Studio Acquisitions is currently accepting clients.</p>
+        </div>
+      </article>
+    </section>
+
+    <div class="faq-links">
+      <a href="booking.html">book</a>
+      <a href="index.html">home</a>
+    </div>
+
+    <p class="faq-owner">&copy; 2026 Studio Acquisitions &middot; This site and business are owned by Moment Solomon.</p>
+  </main>
+
+</body>
+</html>
