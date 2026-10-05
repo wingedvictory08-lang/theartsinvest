@@ -135,6 +135,24 @@
       opacity: 0.75;
     }
 
+    /* availability note sitting just left of the booking pill */
+    .landing-nav {
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .landing-status {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: lowercase;
+      color: var(--bg);
+      text-shadow: 0 1px 3px rgba(27, 42, 74, 0.95), 0 0 10px rgba(27, 42, 74, 0.8);
+      opacity: 0.85;
+      white-space: nowrap;
+    }
+
     /* ownership line, pinned small to the bottom of the landing */
     .landing-owner {
       position: absolute;
@@ -195,6 +213,10 @@
       }
 
       .landing-note {
+        font-size: 0.6rem;
+      }
+
+      .landing-status {
         font-size: 0.6rem;
       }
     }
@@ -335,7 +357,8 @@
 <body>
 
   <!-- Navigation -->
-  <nav class="site-nav">
+  <nav class="site-nav landing-nav">
+    <span class="landing-status">currently accepting clients</span>
     <a href="booking.html" class="nav-booking">booking</a>
   </nav>
 
