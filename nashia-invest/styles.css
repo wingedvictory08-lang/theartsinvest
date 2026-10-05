@@ -598,6 +598,7 @@ body {
   padding: 2rem 2.5rem;
   z-index: 100;
   display: flex;
+  gap: 0.6rem;
 }
 
 .site-nav-left a {
