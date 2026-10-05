@@ -17,7 +17,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 4rem 2rem;
+      padding: 4rem 2rem 6.5rem;
       overflow: hidden;
     }
 
@@ -135,6 +135,23 @@
       opacity: 0.75;
     }
 
+    /* ownership line, pinned small to the bottom of the landing */
+    .landing-owner {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 1.25rem;
+      z-index: 1;
+      padding: 0 1.5rem;
+      font-family: var(--font-body);
+      font-size: 0.6rem;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: var(--bg);
+      text-shadow: 0 1px 3px rgba(27, 42, 74, 0.95), 0 0 10px rgba(27, 42, 74, 0.8);
+      opacity: 0.7;
+    }
+
     /* ── Landing fade-in sequencing ── */
 
     .landing-fade {
@@ -158,7 +175,7 @@
 
     @media (max-width: 600px) {
       .landing {
-        padding: 3rem 1.5rem;
+        padding: 3rem 1.5rem 6.5rem;
       }
 
       .landing-bg {
@@ -182,6 +199,138 @@
       }
     }
   </style>
+  <!-- Structured data (schema.org JSON-LD) for search engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://studioacquisitions.studio/#person",
+        "name": "Moment Solomon",
+        "jobTitle": "Independent Curator & Private Sourcer",
+        "url": "https://studioacquisitions.studio/",
+        "email": "mailto:contactme@studioacquisitions.studio",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Chicago",
+          "addressRegion": "IL",
+          "addressCountry": "US"
+        },
+        "worksFor": {
+          "@id": "https://studioacquisitions.studio/#business"
+        },
+        "knowsAbout": [
+          "Fine art",
+          "Vintage fashion",
+          "Jewelry",
+          "Private sourcing",
+          "Art curation",
+          "Multifamily real estate"
+        ],
+        "sameAs": [
+          "https://studioacquisitions.substack.com/",
+          "https://portfolio.studioacquisitions.studio/"
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://studioacquisitions.studio/#business",
+        "name": "Studio Acquisitions",
+        "url": "https://studioacquisitions.studio/",
+        "description": "Studio Acquisitions is the independent curatorial practice of Moment Solomon offering private sourcing in jewelry, fashion, and fine art. Bespoke web designs and curatorial consultations are a regular part of the practice. Currently accepting clients.",
+        "image": "https://studioacquisitions.studio/studio-bg.jpg",
+        "email": "contactme@studioacquisitions.studio",
+        "telephone": "+1-334-718-2410",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Chicago",
+          "addressRegion": "IL",
+          "addressCountry": "US"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Chicago"
+          },
+          {
+            "@type": "Country",
+            "name": "United States"
+          }
+        ],
+        "founder": {
+          "@id": "https://studioacquisitions.studio/#person"
+        },
+        "sameAs": [
+          "https://studioacquisitions.substack.com/",
+          "https://portfolio.studioacquisitions.studio/"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Studio Acquisitions services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Private Sourcing",
+                "description": "Sourcing and acquisition of fine art, vintage fashion, and jewelry to a client brief."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Curatorial Consultation"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Custom Web Design"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Multifamily Real Estate Co-Investment"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://studioacquisitions.studio/#website",
+        "url": "https://studioacquisitions.studio/",
+        "name": "Studio Acquisitions",
+        "publisher": {
+          "@id": "https://studioacquisitions.studio/#business"
+        },
+        "inLanguage": "en-US"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://studioacquisitions.studio/#webpage",
+        "url": "https://studioacquisitions.studio/",
+        "name": "Studio Acquisitions — Moment Solomon | Independent Curator & Private Sourcer",
+        "description": "Studio Acquisitions is the independent curatorial practice of Moment Solomon offering private sourcing in jewelry, fashion, and fine art. Bespoke web designs and curatorial consultations are a regular part of the practice. Currently accepting clients.",
+        "isPartOf": {
+          "@id": "https://studioacquisitions.studio/#website"
+        },
+        "about": {
+          "@id": "https://studioacquisitions.studio/#business"
+        },
+        "mainEntity": {
+          "@id": "https://studioacquisitions.studio/#person"
+        },
+        "inLanguage": "en-US"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -215,6 +364,8 @@
         </div>
       </div>
     </div>
+
+    <p class="landing-owner">&copy; 2026 Studio Acquisitions &middot; This site and business are owned by Moment Solomon.</p>
   </section>
 
 </body>
