@@ -36,7 +36,7 @@
         <main>
           <h1>Sitemap</h1>
           <div class="line"></div>
-          <p class="intro"><xsl:value-of select="count(s:urlset/s:url)"/> pages on studioacquisitions.studio</p>
+          <p class="intro"><xsl:value-of select="count(s:urlset/s:url)"/> pages on <xsl:value-of select="substring-before(substring-after(s:urlset/s:url[1]/s:loc, '://'), '/')"/></p>
           <table>
             <thead><tr><th>page</th><th class="date">last updated</th></tr></thead>
             <tbody>

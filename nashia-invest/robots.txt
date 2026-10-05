@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://studioacquisitions.studio/sitemap.xml
+Sitemap: https://www.studioacquisitions.studio/sitemap-www.xml
