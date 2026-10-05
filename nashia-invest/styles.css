@@ -589,6 +589,37 @@ body {
   opacity: 1;
 }
 
+/* ── Left-hand nav pill (landing + FAQ), mirrors the booking pill ── */
+
+.site-nav-left {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 2rem 2.5rem;
+  z-index: 100;
+  display: flex;
+}
+
+.site-nav-left a {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  text-decoration: none;
+  color: var(--bg);
+  background-color: var(--text);
+  padding: 0.25rem 0.75rem;
+  margin: -0.25rem 0;
+  border-radius: 999px;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.site-nav-left a:hover {
+  opacity: 1;
+}
+
 /* ── Booking page ── */
 
 .page-title.booking-title {
@@ -925,6 +956,10 @@ body {
   .site-nav {
     padding: 1.5rem 1.5rem;
     gap: 1.5rem;
+  }
+
+  .site-nav-left {
+    padding: 1.5rem 1.5rem;
   }
 
   .page-wrapper {
