@@ -6,9 +6,6 @@
   <meta name="description" content="Studio Acquisitions is the independent curatorial practice of Moment Solomon offering private sourcing in jewelry, fashion, and fine art. Bespoke web designs and curatorial consultations are a regular part of the practice. Currently accepting clients.">
   <title>Studio Acquisitions — Moment Solomon | Independent Curator &amp; Private Sourcer</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
   <style>
     /* ── Landing page ── */
 
@@ -37,17 +34,18 @@
       max-width: 600px;
     }
 
-    /* marker lettering in the site navy */
+    /* ivory lettering in the site fonts, with a soft navy shadow so it reads over the photo */
     .landing {
-      --marker: var(--text);
+      --marker: var(--bg);
     }
 
     .landing-title {
-      font-family: 'Permanent Marker', 'Marker Felt', cursive;
+      font-family: var(--font-heading);
       color: var(--marker);
-      font-size: clamp(2.4rem, 6vw, 4rem);
+      text-shadow: 0 1px 3px rgba(27, 42, 74, 0.9), 0 0 12px rgba(27, 42, 74, 0.6);
+      font-size: clamp(2.2rem, 5.5vw, 3.6rem);
       font-weight: 400;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.03em;
       line-height: 1.15;
       margin-bottom: 2.5rem;
     }
@@ -66,28 +64,27 @@
     }
 
     .landing-links a {
-      font-family: 'Permanent Marker', 'Marker Felt', cursive;
+      font-family: var(--font-heading);
       color: var(--marker);
-      font-size: 1.9rem;
+      text-shadow: 0 1px 3px rgba(27, 42, 74, 0.9), 0 0 12px rgba(27, 42, 74, 0.6);
+      font-size: 1.5rem;
       font-weight: 400;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.04em;
       text-decoration: none;
       position: relative;
       transition: color 0.3s ease;
     }
 
-    /* a marker-style underline so it reads as a link */
+    /* thin underline so it reads as a link */
     .landing-links a::after {
       content: '';
       position: absolute;
-      left: 2%;
-      right: 2%;
-      bottom: -2px;
-      height: 3px;
-      border-radius: 3px;
+      left: 0;
+      right: 0;
+      bottom: -5px;
+      height: 1px;
       background: var(--marker);
-      opacity: 0.55;
-      transform: rotate(-1deg);
+      opacity: 0.6;
       transition: opacity 0.3s ease;
     }
 
@@ -100,12 +97,14 @@
     }
 
     .landing-note {
-      font-family: 'Permanent Marker', 'Marker Felt', cursive;
+      font-family: var(--font-body);
       color: var(--marker);
-      font-size: 0.9rem;
+      text-shadow: 0 1px 3px rgba(27, 42, 74, 0.9), 0 0 12px rgba(27, 42, 74, 0.6);
+      font-size: 0.72rem;
       font-weight: 400;
-      letter-spacing: 0.06em;
-      margin-top: 1.6rem;
+      letter-spacing: 0.1em;
+      opacity: 0.85;
+      margin-top: 1.4rem;
     }
 
     /* availability note sitting just left of the booking pill */
@@ -178,11 +177,11 @@
       }
 
       .landing-links a {
-        font-size: 1.6rem;
+        font-size: 1.3rem;
       }
 
       .landing-note {
-        font-size: 0.78rem;
+        font-size: 0.66rem;
       }
 
       .landing-status {
