@@ -9,9 +9,27 @@
   <style>
     /* ── Essay list ── */
 
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+
     .essay-list {
       list-style: none;
       max-width: 620px;
+      padding-top: 9rem;
+    }
+
+    .essay-description {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      opacity: 0.6;
+      margin-top: 0.7rem;
+      max-width: 520px;
     }
 
     .essay-list li {
@@ -25,7 +43,8 @@
 
     .essay-link {
       font-family: var(--font-heading);
-      font-size: 1.5rem;
+      font-size: 1.7rem;
+      font-style: italic;
       font-weight: 400;
       color: var(--text);
       background: none;
@@ -123,6 +142,7 @@
 
     .essay-box h2 {
       font-family: var(--font-heading);
+      font-style: italic;
       font-size: 2rem;
       font-weight: 400;
       margin-bottom: 0.6rem;
@@ -198,6 +218,7 @@
             "@type": "Article",
             "@id": "https://studioacquisitions.studio/essays.html#some-thoughts",
             "headline": "some thoughts",
+            "description": "a study of curatorial thinking, on reverting the consumerist process that obscures one's taste",
             "author": { "@id": "https://studioacquisitions.studio/#person" },
             "publisher": { "@id": "https://studioacquisitions.studio/#business" },
             "about": ["Taste", "Personal style", "Curation"]
@@ -229,7 +250,7 @@
 
   <div class="page-wrapper">
 
-    <h1 class="page-title fade-in">Curatorial Theses</h1>
+    <h1 class="visually-hidden">Curatorial Theses</h1>
 
     <!-- The list below fills itself in from the essays further down. -->
     <ol class="essay-list fade-in" id="essay-list"></ol>
@@ -242,11 +263,13 @@
            id          a short web-friendly name, e.g. "on-patina"
                        (this also makes a direct link: essays.html#on-patina)
            data-title  the title shown in the list and the box
+           data-description  the short line shown under the title in the list
            the <p> paragraphs inside
          Essays appear in the list in the same order as here.
          ============================================================ -->
 
-    <article class="essay-source" id="some-thoughts" data-title="some thoughts">
+    <article class="essay-source" id="some-thoughts" data-title="some thoughts"
+             data-description="a study of curatorial thinking, on reverting the consumerist process that obscures one's taste">
       <p>Taste is consistently marketed to us in a unidirectional flow. Present: Effect. Then reverse engineer it back to a specific item; what item gives what effect, and how do I purchase it? You’re shooting yourself in the foot by thinking this way. It's an easier and more flattering process—that much I understand. When you believe that you can recreate an effect by simply purchasing the right item, then you’re believing in a fundamental mode of imitation; you’re telling yourself that you can recreate the same thing, and you never have to assess your own, intrinsic relationship to art. Brands sell an identity, and we purchase it to recreate the effect we have in mind. It’s a tight and self-aggrandizing loop. You neither have to acknowledge your own intrinsic qualities, nor another’s, and it becomes a comparison trap that doesn’t harm the ego. Because even if you fail, well, you simply haven’t purchased the right product.</p>
       <p>But consider a different line of attribution. Consider what happens when you start with something intrinsic and analyze the effect it’s already producing. Consider what happens when you cater to that instead of chasing an identity you admired on someone else once.</p>
       <p>There’s a way it could become a form of determinism, applied to oneself. I don’t think that’s the correct framework for what I’m suggesting, however. Because who you are can change. And intrinsic qualities are shaped by more than just the things out of our control; they can grow with you, so long as you have the self-awareness that these next steps require of you, too. And intrinsic qualities are where we should start, because style coherence arrives when those qualities shape the art in your life rather than when you’ve decided to pluck art from an external source that tells you what’s trending and what you should be afraid of.</p>
@@ -322,6 +345,12 @@
         btn.textContent = essay.dataset.title;
         btn.addEventListener('click', function () { openEssay(essay, btn); });
         li.appendChild(btn);
+        if (essay.dataset.description) {
+          var desc = document.createElement('p');
+          desc.className = 'essay-description';
+          desc.textContent = essay.dataset.description;
+          li.appendChild(desc);
+        }
         list.appendChild(li);
       });
 

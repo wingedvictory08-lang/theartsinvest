@@ -37,15 +37,14 @@
       max-width: 600px;
     }
 
-    /* marker lettering in a bright navy, haloed in ivory so it reads over the photo */
+    /* marker lettering in the site navy */
     .landing {
-      --marker: #1F3D99;
+      --marker: var(--text);
     }
 
     .landing-title {
       font-family: 'Permanent Marker', 'Marker Felt', cursive;
       color: var(--marker);
-      text-shadow: 0 0 1px #FFFFF0, 0 0 2px #FFFFF0, 0 0 4px rgba(255, 255, 240, 0.95), 0 0 10px rgba(255, 255, 240, 0.8), 0 0 22px rgba(255, 255, 240, 0.5);
       font-size: clamp(2.4rem, 6vw, 4rem);
       font-weight: 400;
       letter-spacing: 0.02em;
@@ -69,7 +68,6 @@
     .landing-links a {
       font-family: 'Permanent Marker', 'Marker Felt', cursive;
       color: var(--marker);
-      text-shadow: 0 0 1px #FFFFF0, 0 0 2px #FFFFF0, 0 0 4px rgba(255, 255, 240, 0.95), 0 0 10px rgba(255, 255, 240, 0.8), 0 0 22px rgba(255, 255, 240, 0.5);
       font-size: 1.9rem;
       font-weight: 400;
       letter-spacing: 0.02em;
@@ -94,7 +92,7 @@
     }
 
     .landing-links a:hover {
-      color: #2E54C6;
+      opacity: 0.8;
     }
 
     .landing-links a:hover::after {
@@ -104,7 +102,6 @@
     .landing-note {
       font-family: 'Permanent Marker', 'Marker Felt', cursive;
       color: var(--marker);
-      text-shadow: 0 0 1px #FFFFF0, 0 0 2px #FFFFF0, 0 0 4px rgba(255, 255, 240, 0.95), 0 0 10px rgba(255, 255, 240, 0.8), 0 0 22px rgba(255, 255, 240, 0.5);
       font-size: 0.9rem;
       font-weight: 400;
       letter-spacing: 0.06em;
