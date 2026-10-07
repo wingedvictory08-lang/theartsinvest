@@ -24,6 +24,25 @@
       padding-top: 9rem;
     }
 
+    .essay-object {
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: lowercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+
+    .essay-body a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+    }
+
+    .essay-body a:hover {
+      border-bottom-color: var(--text);
+    }
+
     .essay-description {
       font-size: 0.85rem;
       line-height: 1.7;
@@ -260,7 +279,8 @@
            data-title  the title shown in the list and the box
            data-description  the short line shown under the title in the list
            the <p> paragraphs inside
-         Essays appear in the list in the same order as here.
+         Essays appear in the list in the same order as here, and are
+         labelled object 01, object 02… automatically.
          ============================================================ -->
 
     <article class="essay-source" id="some-thoughts" data-title="some thoughts"
@@ -283,7 +303,7 @@
       <p>Essentially, two people can arrive at the same effect as a byproduct of how they express themselves. Perhaps they have similar backgrounds, cultures, inputs from a young age. There’s no argument that every instance of convergence is copying, or even inspiration, although inspiration is natural. I just don’t believe those effects have converged because of a chase for it; I’d argue that, in those cases, two minds have simply identified each other.</p>
       <p>And they’ve done so the way a muse may inspire the art, while the art inspires the muse, to acknowledge her own image, if nothing else.</p>
       <p class="essay-note">*The word is obsolete in the dictionary, but not to me.</p>
-      <p>Feel free to reach out for a list of fun readings, if you're interested.</p>
+      <p>Feel free to reach out via email for a list of fun readings, if you're interested: <a href="mailto:contactme@studioacquisitions.studio">contactme@studioacquisitions.studio</a></p>
     </article>
 
     <!-- paste the next essay here -->
@@ -339,8 +359,13 @@
         if (lastTrigger) lastTrigger.focus();
       }
 
-      essays.forEach(function (essay) {
+      essays.forEach(function (essay, i) {
         var li = document.createElement('li');
+        // label each essay as an object, numbered in page order: object 01, object 02…
+        var label = document.createElement('p');
+        label.className = 'essay-object';
+        label.textContent = 'object ' + String(i + 1).padStart(2, '0');
+        li.appendChild(label);
         var btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'essay-link';
