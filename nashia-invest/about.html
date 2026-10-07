@@ -6,170 +6,6 @@
   <meta name="description" content="Moment Solomon is an independent art curator and the founder of Studio Acquisitions, a curatorial practice in fine art, vintage fashion, and jewelry.">
   <title>About - Moment Solomon</title>
   <link rel="stylesheet" href="styles.css">
-  <style>
-    /* ── About page: same photo, type and shadowing as the landing and FAQ pages ── */
-
-    .about-bg {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      background: url('studio-bg.jpg') center bottom / cover no-repeat;
-    }
-
-    .about-page {
-      position: relative;
-      z-index: 1;
-      max-width: 680px;
-      margin: 0 auto;
-      padding: 8rem 2rem 7rem;
-      color: var(--bg);
-      text-shadow: 0 1px 3px rgba(27, 42, 74, 0.95), 0 0 10px rgba(27, 42, 74, 0.8), 0 0 24px rgba(27, 42, 74, 0.6);
-    }
-
-    .about-title {
-      font-family: var(--font-heading);
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 400;
-      letter-spacing: 0.03em;
-      line-height: 1.2;
-      text-align: center;
-      margin-bottom: 1.2rem;
-    }
-
-    .about-subtitle {
-      text-align: center;
-      font-size: 0.8rem;
-      letter-spacing: 0.08em;
-      text-transform: lowercase;
-      opacity: 0.85;
-    }
-
-    .about-line {
-      width: 50px;
-      height: 1px;
-      background: var(--gold);
-      margin: 2.5rem auto 4rem;
-    }
-
-    .about-item {
-      margin-bottom: 3.5rem;
-    }
-
-    .about-number {
-      font-size: 0.7rem;
-      font-weight: 400;
-      letter-spacing: 0.15em;
-      color: var(--gold);
-      margin-bottom: 0.8rem;
-    }
-
-    .about-question {
-      font-family: var(--font-heading);
-      font-size: 1.45rem;
-      font-weight: 400;
-      line-height: 1.35;
-      margin-bottom: 1rem;
-    }
-
-    .about-answer p {
-      font-size: 1.02rem;
-      font-weight: 300;
-      line-height: 1.9;
-      margin-bottom: 1rem;
-    }
-
-    .about-answer p:last-child {
-      margin-bottom: 0;
-    }
-
-    .about-answer a,
-    .about-links a {
-      color: var(--bg);
-      text-decoration: none;
-      border-bottom: 1px solid var(--gold);
-      transition: opacity 0.3s ease;
-    }
-
-    .about-answer a:hover,
-    .about-links a:hover {
-      opacity: 0.75;
-    }
-
-    .about-links {
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-      margin-top: 4.5rem;
-      font-family: var(--font-heading);
-      font-size: 1.3rem;
-      letter-spacing: 0.04em;
-      text-transform: lowercase;
-    }
-
-    /* page links are gold so they read as links, not body text */
-    .about-links a {
-      color: var(--gold);
-      text-shadow: 0 1px 2px rgba(10, 16, 30, 0.95), 0 0 8px rgba(10, 16, 30, 0.7);
-      border-bottom-color: rgba(201, 185, 154, 0.6);
-      transition: color 0.3s ease, border-color 0.3s ease;
-    }
-
-    .about-links a:hover {
-      color: var(--bg);
-      border-bottom-color: var(--gold);
-      opacity: 1;
-    }
-
-    .about-owner {
-      margin-top: 5rem;
-      text-align: center;
-      font-size: 0.6rem;
-      font-weight: 300;
-      letter-spacing: 0.06em;
-      opacity: 0.7;
-    }
-
-    .about-fade {
-      opacity: 0;
-      transform: translateY(16px);
-      animation: aboutIn 0.9s ease forwards;
-    }
-
-    .about-fade:nth-child(1) { animation-delay: 0.15s; }
-    .about-fade:nth-child(2) { animation-delay: 0.3s; }
-    .about-fade:nth-child(3) { animation-delay: 0.45s; }
-    .about-fade:nth-child(n+4) { animation-delay: 0.6s; }
-
-    @keyframes aboutIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 600px) {
-      .about-bg {
-        background-size: auto 200%;
-      }
-
-      .about-page {
-        padding: 6.5rem 1.5rem 5rem;
-      }
-
-      .about-question {
-        font-size: 1.25rem;
-      }
-
-      .about-answer p {
-        font-size: 0.92rem;
-      }
-
-      .about-links {
-        gap: 2.5rem;
-        font-size: 1.1rem;
-      }
-    }
-  </style>
 
   <!-- Structured data (schema.org JSON-LD) for search engines -->
   <script type="application/ld+json">
@@ -246,36 +82,48 @@
   <!-- Navigation -->
   <nav class="site-nav-left">
     <a href="index.html">home</a>
+    <a href="faq.html">faq</a>
   </nav>
   <nav class="site-nav landing-nav">
     <a href="booking.html" class="nav-booking">booking</a>
   </nav>
 
-  <div class="about-bg" aria-hidden="true"></div>
+  <figure class="hang" aria-hidden="true"><img src="studio-bg.jpg" alt=""></figure>
 
-  <main class="about-page">
-    <header class="about-fade">
-      <h1 class="about-title">Moment Solomon</h1>
-      <p class="about-subtitle">art curator &middot; writer &middot; founder, studio acquisitions</p>
+  <main class="sheet">
+    <header class="sheet-fade">
+      <h1 class="sheet-title">Moment Solomon</h1>
+      <p class="sheet-subtitle">art curator &middot; writer &middot; founder, studio acquisitions</p>
     </header>
-    <div class="about-line about-fade"></div>
+    <div class="sheet-line sheet-fade"></div>
+
+    <!-- About the practice (moved from the homepage) -->
+    <article class="sheet-item sheet-fade">
+      <div class="sheet-prose">
+          <p>Studio Acquisitions is an independent curatorial practice. I source, acquire, and curate fine art, vintage fashion, and jewelry. And when the project calls for it, the spaces they belong in.</p>
+          <p>My work's argument is swift: taste is a form of self-knowledge and perspective, and acquisition without it is aimless. Private sourcing, curatorial consultations, editorial writing, and spatial projects all draw from the same practice — knowing what you're searching for, researching the market, and identifying its value.</p>
+      </div>
+    </article>
+
+    <div class="sheet-line sheet-fade"></div>
 
     <!-- EDIT THE BIO HERE — long juror bio, current as of October 2026 -->
-    <article class="about-item about-fade">
-      <div class="about-answer">
+    <article class="sheet-item sheet-fade">
+      <div class="sheet-prose">
           <p>I'm an independent art curator and the founder of Studio Acquisitions, a curatorial and acquisition practice spanning fine art, vintage fashion, and jewelry. My work centers on sourcing, acquiring, and curating small collections through rigorous object research, market comparison, and written collection narratives, alongside private sourcing commissions and consultations with clients developing their own aesthetic identity.</p>
           <p>My public writing on taste, specificity, and the relationship between curatorial perspective and acquisition has reached over 165,000 readers across platforms, generating inbound inquiries from readers, publications, and arts institutions. I conduct independent market research across galleries, auction and resale markets, vintage dealers, and private sellers.</p>
           <p>Prior to founding Studio Acquisitions, I served as Development Associate at the Berkshire Museum, where I coordinated across curatorial, collections, and marketing teams, developed facility-rental policy benchmarked against fifteen peer institutions, and launched a new volunteer program. I hold a BA in History from Williams College, with selected study in Black political thought and studio art, and was a QuestBridge Match Scholar.</p>
       </div>
     </article>
 
-    <div class="about-links about-fade">
+    <div class="sheet-links sheet-fade">
       <a href="booking.html">book</a>
       <a href="faq.html">faq</a>
       <a href="index.html">home</a>
+      <a href="https://portfolio.studioacquisitions.studio/#home" target="_blank" rel="noopener">weekly artist case studies</a>
     </div>
 
-    <p class="about-owner">&copy; 2026 Studio Acquisitions &middot; This site and business are owned by Moment Solomon.</p>
+    <p class="sheet-owner">&copy; 2026 Studio Acquisitions &middot; This site and business are owned by Moment Solomon.</p>
   </main>
 
 </body>

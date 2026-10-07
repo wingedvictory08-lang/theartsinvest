@@ -6,6 +6,9 @@
   <meta name="description" content="Studio Acquisitions is the independent curatorial practice of Moment Solomon offering private sourcing in jewelry, fashion, and fine art. Bespoke web designs and curatorial consultations are a regular part of the practice. Currently accepting clients.">
   <title>Studio Acquisitions — Moment Solomon | Independent Curator &amp; Private Sourcer</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
   <style>
     /* ── Landing page ── */
 
@@ -34,14 +37,20 @@
       max-width: 600px;
     }
 
+    /* marker lettering in a bright navy, haloed in ivory so it reads over the photo */
+    .landing {
+      --marker: #1F3D99;
+    }
+
     .landing-title {
-      font-family: var(--font-heading);
-      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-family: 'Permanent Marker', 'Marker Felt', cursive;
+      color: var(--marker);
+      text-shadow: 0 0 1px #FFFFF0, 0 0 2px #FFFFF0, 0 0 4px rgba(255, 255, 240, 0.95), 0 0 10px rgba(255, 255, 240, 0.8), 0 0 22px rgba(255, 255, 240, 0.5);
+      font-size: clamp(2.4rem, 6vw, 4rem);
       font-weight: 400;
-      letter-spacing: 0.03em;
-      color: var(--bg);
-      text-shadow: 0 1px 3px rgba(27, 42, 74, 0.95), 0 0 10px rgba(27, 42, 74, 0.8), 0 0 24px rgba(27, 42, 74, 0.6);
-      margin-bottom: 3rem;
+      letter-spacing: 0.02em;
+      line-height: 1.15;
+      margin-bottom: 2.5rem;
     }
 
     .landing-line {
@@ -51,25 +60,6 @@
       margin: 0 auto 3rem;
     }
 
-    .landing-description {
-      font-family: var(--font-body);
-      font-size: 1rem;
-      font-weight: 300;
-      line-height: 1.9;
-      color: var(--bg);
-      text-shadow: 0 1px 3px rgba(27, 42, 74, 0.95), 0 0 10px rgba(27, 42, 74, 0.8), 0 0 24px rgba(27, 42, 74, 0.6);
-      opacity: 0.92;
-      margin-bottom: 4rem;
-    }
-
-    .landing-description p {
-      margin-bottom: 1.4rem;
-    }
-
-    .landing-description p:last-child {
-      margin-bottom: 0;
-    }
-
     .landing-links {
       display: flex;
       justify-content: center;
@@ -77,63 +67,48 @@
     }
 
     .landing-links a {
-      font-family: var(--font-heading);
-      font-size: 1.3rem;
+      font-family: 'Permanent Marker', 'Marker Felt', cursive;
+      color: var(--marker);
+      text-shadow: 0 0 1px #FFFFF0, 0 0 2px #FFFFF0, 0 0 4px rgba(255, 255, 240, 0.95), 0 0 10px rgba(255, 255, 240, 0.8), 0 0 22px rgba(255, 255, 240, 0.5);
+      font-size: 1.9rem;
       font-weight: 400;
-      letter-spacing: 0.04em;
-      color: var(--gold);
-      text-shadow: 0 1px 2px rgba(10, 16, 30, 0.95), 0 0 8px rgba(10, 16, 30, 0.7);
+      letter-spacing: 0.02em;
       text-decoration: none;
       position: relative;
-      transition: color 0.4s ease;
-      text-transform: lowercase;
+      transition: color 0.3s ease;
     }
 
-    /* a thin gold underline is always shown so these read as links */
+    /* a marker-style underline so it reads as a link */
     .landing-links a::after {
       content: '';
       position: absolute;
-      bottom: -5px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
-      height: 1px;
-      background: var(--gold);
-      opacity: 0.6;
-      transition: opacity 0.4s ease;
+      left: 2%;
+      right: 2%;
+      bottom: -2px;
+      height: 3px;
+      border-radius: 3px;
+      background: var(--marker);
+      opacity: 0.55;
+      transform: rotate(-1deg);
+      transition: opacity 0.3s ease;
     }
 
     .landing-links a:hover {
-      color: var(--bg);
+      color: #2E54C6;
     }
 
     .landing-links a:hover::after {
-      opacity: 1;
-    }
-
-    /* second row: one link centred just under curate / invest */
-    .landing-secondary {
-      margin-top: 1.4rem;
-    }
-
-    /* small note hung under a link without shifting the row */
-    .landing-link-item {
-      position: relative;
+      opacity: 0.9;
     }
 
     .landing-note {
-      position: absolute;
-      top: calc(100% + 0.9rem);
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: var(--font-body);
-      font-size: 0.68rem;
+      font-family: 'Permanent Marker', 'Marker Felt', cursive;
+      color: var(--marker);
+      text-shadow: 0 0 1px #FFFFF0, 0 0 2px #FFFFF0, 0 0 4px rgba(255, 255, 240, 0.95), 0 0 10px rgba(255, 255, 240, 0.8), 0 0 22px rgba(255, 255, 240, 0.5);
+      font-size: 0.9rem;
       font-weight: 400;
-      letter-spacing: 0.1em;
-      white-space: nowrap;
-      color: var(--bg);
-      text-shadow: 0 1px 3px rgba(27, 42, 74, 0.95), 0 0 10px rgba(27, 42, 74, 0.8), 0 0 24px rgba(27, 42, 74, 0.6);
-      opacity: 0.75;
+      letter-spacing: 0.06em;
+      margin-top: 1.6rem;
     }
 
     /* availability note sitting just left of the booking pill */
@@ -206,15 +181,11 @@
       }
 
       .landing-links a {
-        font-size: 1.1rem;
-      }
-
-      .landing-description {
-        font-size: 0.92rem;
+        font-size: 1.6rem;
       }
 
       .landing-note {
-        font-size: 0.6rem;
+        font-size: 0.78rem;
       }
 
       .landing-status {
@@ -389,21 +360,11 @@
 
       <div class="landing-line landing-fade"></div>
 
-      <div class="landing-description landing-fade">
-        <p>Studio Acquisitions is an independent curatorial practice. I source, acquire, and curate fine art, vintage fashion, and jewelry. And when the project calls for it, the spaces they belong in.</p>
-        <p>My work's argument is swift: taste is a form of self-knowledge and perspective, and acquisition without it is aimless. Private sourcing, curatorial consultations, editorial writing, and spatial projects all draw from the same practice — knowing what you're searching for, researching the market, and identifying its value.</p>
-      </div>
-
       <div class="landing-links landing-fade">
-        <a href="https://studioacquisitions.substack.com/?utm_campaign=pub&amp;utm_medium=web">curate</a>
+        <a href="essays.html">curatorial theses</a>
       </div>
 
-      <div class="landing-links landing-secondary landing-fade">
-        <div class="landing-link-item">
-          <a href="https://portfolio.studioacquisitions.studio/#home">weekly artist case studies</a>
-          <span class="landing-note">Digital Collection coming soon</span>
-        </div>
-      </div>
+      <p class="landing-note landing-fade">Digital Collection coming soon</p>
     </div>
 
     <p class="landing-owner">&copy; 2026 Studio Acquisitions &middot; This site and business are owned by Moment Solomon.</p>
