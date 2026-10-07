@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Curatorial theses by Moment Solomon of Studio Acquisitions: essays on taste, style, and the intrinsic qualities that shape what we choose.">
+  <title>Curatorial Theses | Studio Acquisitions</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Essay list ── */
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+
+    .essay-list {
+      list-style: none;
+      max-width: 620px;
+      padding-top: 9rem;
+    }
+
+    .essay-description {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      opacity: 0.6;
+      margin-top: 0.7rem;
+      max-width: 520px;
+    }
+
+    .essay-list li {
+      padding: 1.6rem 0;
+      border-bottom: 1px solid rgba(201, 185, 154, 0.45);
+    }
+
+    .essay-list li:first-child {
+      border-top: 1px solid rgba(201, 185, 154, 0.45);
+    }
+
+    .essay-link {
+      font-family: var(--font-heading);
+      font-size: 1.7rem;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--text);
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      text-align: left;
+      position: relative;
+    }
+
+    .essay-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    .essay-link:hover::after,
+    .essay-link:focus-visible::after {
+      width: 100%;
+    }
+
+    /* the essays themselves stay hidden until opened */
+    .essay-source {
+      display: none;
+    }
+
+    /* ── Essay box ── */
+
+    .essay-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 900;
+      background: rgba(27, 42, 74, 0.18);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.35s ease, visibility 0.35s ease;
+    }
+
+    .essay-box {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      z-index: 1000;
+      width: min(680px, calc(100vw - 2rem));
+      max-height: min(84vh, 900px);
+      overflow-y: auto;
+      background: var(--white);
+      border-radius: 6px;
+      box-shadow: 0 18px 60px rgba(27, 42, 74, 0.16);
+      padding: 3.2rem 3.4rem 3rem;
+      opacity: 0;
+      visibility: hidden;
+      transform: translate(-50%, calc(-50% + 14px));
+      transition: opacity 0.35s ease, visibility 0.35s ease, transform 0.35s ease;
+    }
+
+    .essay-open .essay-overlay,
+    .essay-open .essay-box {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .essay-open .essay-box {
+      transform: translate(-50%, -50%);
+    }
+
+    .essay-open {
+      overflow: hidden;
+    }
+
+    .essay-close {
+      position: sticky;
+      top: 0;
+      float: right;
+      margin: -2.2rem -2.4rem 0 0;
+      font-size: 0.9rem;
+      line-height: 1;
+      color: var(--text);
+      opacity: 0.35;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.3rem;
+      transition: opacity 0.3s ease;
+    }
+
+    .essay-close:hover {
+      opacity: 0.7;
+    }
+
+    .essay-box h2 {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 0.6rem;
+    }
+
+    .essay-byline {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: lowercase;
+      opacity: 0.5;
+    }
+
+    .essay-box .essay-rule {
+      width: 50px;
+      height: 1px;
+      background: var(--gold);
+      margin: 2rem 0 2.2rem;
+    }
+
+    .essay-body p {
+      font-size: 0.97rem;
+      line-height: 1.9;
+      opacity: 0.85;
+      margin-bottom: 1.3rem;
+    }
+
+    .essay-body .essay-aside {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 1.1rem;
+      opacity: 1;
+      margin-top: 2.2rem;
+    }
+
+    .essay-body .essay-note {
+      font-size: 0.78rem;
+      opacity: 0.6;
+      border-top: 1px solid rgba(201, 185, 154, 0.5);
+      padding-top: 1.2rem;
+      margin-top: 2.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .essay-box {
+        padding: 2.6rem 1.5rem 2.2rem;
+      }
+
+      .essay-close {
+        margin: -1.8rem -0.8rem 0 0;
+      }
+
+      .essay-box h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+
+  <!-- Structured data (schema.org JSON-LD) for search engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://studioacquisitions.studio/essays.html#webpage",
+        "url": "https://studioacquisitions.studio/essays.html",
+        "name": "Curatorial Theses | Studio Acquisitions",
+        "isPartOf": { "@id": "https://studioacquisitions.studio/#website" },
+        "about": { "@id": "https://studioacquisitions.studio/#business" },
+        "inLanguage": "en-US",
+        "hasPart": [
+          {
+            "@type": "Article",
+            "@id": "https://studioacquisitions.studio/essays.html#some-thoughts",
+            "headline": "some thoughts",
+            "description": "a study of curatorial thinking, on reverting the consumerist process that obscures one's taste",
+            "author": { "@id": "https://studioacquisitions.studio/#person" },
+            "publisher": { "@id": "https://studioacquisitions.studio/#business" },
+            "about": ["Taste", "Personal style", "Curation"]
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Studio Acquisitions", "item": "https://studioacquisitions.studio/" },
+          { "@type": "ListItem", "position": 2, "name": "Curatorial Theses", "item": "https://studioacquisitions.studio/essays.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav-left">
+    <a href="index.html">home</a>
+    <a href="about.html">about</a>
+    <a href="faq.html">faq</a>
+  </nav>
+  <nav class="site-nav">
+    <a href="booking.html" class="nav-booking">booking</a>
+  </nav>
+
+  <div class="page-wrapper">
+
+    <h1 class="visually-hidden">Curatorial Theses</h1>
+
+    <!-- The list below fills itself in from the essays further down. -->
+    <ol class="essay-list fade-in" id="essay-list"></ol>
+
+    <!-- ============================================================
+         ADD MORE ESSAYS HERE
+         Each essay is one <article class="essay-source"> block.
+         To add one, copy the whole block from <article ...> to
+         </article>, paste it below the last essay, and change:
+           id          a short web-friendly name, e.g. "on-patina"
+                       (this also makes a direct link: essays.html#on-patina)
+           data-title  the title shown in the list and the box
+           data-description  the short line shown under the title in the list
+           the <p> paragraphs inside
+         Essays appear in the list in the same order as here.
+         ============================================================ -->
+
+    <article class="essay-source" id="some-thoughts" data-title="some thoughts"
+             data-description="a study of curatorial thinking, on reverting the consumerist process that obscures one's taste">
+      <p>Taste is consistently marketed to us in a unidirectional flow. Present: Effect. Then reverse engineer it back to a specific item; what item gives what effect, and how do I purchase it? You’re shooting yourself in the foot by thinking this way. It's an easier and more flattering process—that much I understand. When you believe that you can recreate an effect by simply purchasing the right item, then you’re believing in a fundamental mode of imitation; you’re telling yourself that you can recreate the same thing, and you never have to assess your own, intrinsic relationship to art. Brands sell an identity, and we purchase it to recreate the effect we have in mind. It’s a tight and self-aggrandizing loop. You neither have to acknowledge your own intrinsic qualities, nor another’s, and it becomes a comparison trap that doesn’t harm the ego. Because even if you fail, well, you simply haven’t purchased the right product.</p>
+      <p>But consider a different line of attribution. Consider what happens when you start with something intrinsic and analyze the effect it’s already producing. Consider what happens when you cater to that instead of chasing an identity you admired on someone else once.</p>
+      <p>There’s a way it could become a form of determinism, applied to oneself. I don’t think that’s the correct framework for what I’m suggesting, however. Because who you are can change. And intrinsic qualities are shaped by more than just the things out of our control; they can grow with you, so long as you have the self-awareness that these next steps require of you, too. And intrinsic qualities are where we should start, because style coherence arrives when those qualities shape the art in your life rather than when you’ve decided to pluck art from an external source that tells you what’s trending and what you should be afraid of.</p>
+      <p>Rather than following the line from the effect you’re seeking to produce, follow the line from the things you can express and the qualities that precede them.</p>
+      <p class="essay-aside">An example from pop culture.</p>
+      <p>I wrote a Twitter thread recently about a popular figure from Japanese culture, through the works of anime and manga. It’s an accessible figure, and a good example. Gojo Satoru.</p>
+      <p>Fundamentally, the thread argued that a particular outfit of his—a boatneck collared black sweater and a pair of loosely fitted sweatpants—was a phenomenal work of character-building because of its reliance on communicating the qualities associated with his character. This is a fundamental aspect of character-building, hence my choice to reference fiction for this argument. A character design’s entire purpose relies on communicating facts about the character through visual medium; it’s why lackluster design feels so blatant, as in a Marvel property I referenced but won’t dig into here, also to be found on a stray Twitter thread.</p>
+      <p>Anyway, to iterate the point about Gojo Satoru: the character-building was so powerful because it conveyed an effortlessness consistent with his all-powerful, almost godlike nature. An intentional lackadaisy.* It didn’t reverse-engineer an effect; it started from his intrinsic qualities and the effect arose as a product of how those qualities express themselves.</p>
+      <p>Now, this is a fictional character, but the mechanics are the same. I’m sure you can call to mind at least one person in your life who has an inordinate amount of presence.</p>
+      <p>I think the mistake is taking that presence and assuming that it was bought, therefore it can be copied. Imitation is a futile game, because the qualities of real art are intrinsic. It conveys a perspective, one unique to the artist. That presence you so admire is almost certainly intrinsic. The exterior is just an expression of that presence. Back to Japan, for Gojo it meant the ability to put little thought into an outfit that would signal a lack of status and wealth on anyone else. For someone in the real world, it may be the reason you can recall this person so clearly despite them having thought about their appearance, perhaps, few times in their life.</p>
+      <p>That’s not to argue that art is futile, and everything should be a matter of throwing on whatever calls to you. It’s to argue that throwing on whatever calls to you, and having the perspective to identify it—and why, even better—is art. You don’t choose the effect you’d like to create and let the, say, clothes follow it. An effect is already being produced, whatever effect that is, and the clothes ought to amplify it. Don’t focus too hard on the effect part of the process though; identifying it can be and often is useful, but it isn’t the starting point. That would be whatever you’re expressing. That’s where the effect stems from in the first place.</p>
+      <p>It also takes us further and explains something more unique. The convergence of self-expression that doesn’t hinge on copying. This is less tightly woven than the effect conversation. It’s a dialogue, more than anything, because there’s no denying that resonance is true. In art, in style, in taste. I don’t believe we’re tempted to imitate because we believe that somehow, someone else has figured out what we haven’t. At least, that isn’t the sole reason for imitation.</p>
+      <p>I do believe that sometimes we see someone whose work resonates, and we think to ourselves, “Oh, that’s the effect I want.”</p>
+      <p>And I’m not here to declare resonance fake. My own taste aligns with a varied ledger of creatives, and I’d be a hypocrite to pretend that we exist in an isolated bubble, where external influence has no bearing on our taste.</p>
+      <p>What I’m here to do is reframe that initial thought. Rather than focusing on the external effect that art has, which we have no way of measuring in ourselves anyway, given we cannot perceive outside the self, I find it useful to ask what intrinsic qualities are reflected in that art…that I feel apply to me as well.</p>
+      <p>Essentially, two people can arrive at the same effect as a byproduct of how they express themselves. Perhaps they have similar backgrounds, cultures, inputs from a young age. There’s no argument that every instance of convergence is copying, or even inspiration, although inspiration is natural. I just don’t believe those effects have converged because of a chase for it; I’d argue that, in those cases, two minds have simply identified each other.</p>
+      <p>And they’ve done so the way a muse may inspire the art, while the art inspires the muse, to acknowledge her own image, if nothing else.</p>
+      <p class="essay-note">*The word is obsolete in the dictionary, but not to me.</p>
+      <p>Feel free to reach out for a list of fun readings, if you're interested.</p>
+    </article>
+
+    <!-- paste the next essay here -->
+
+    <footer class="site-footer fade-in" style="margin-top: 6rem;">
+      <p class="disclaimer">&copy; 2026 Studio Acquisitions &middot; This site and business are owned by Moment Solomon.</p>
+    </footer>
+
+  </div>
+
+  <!-- Essay box (filled in when an essay is opened) -->
+  <div class="essay-overlay" id="essay-overlay"></div>
+  <div class="essay-box" id="essay-box" role="dialog" aria-modal="true" aria-labelledby="essay-box-title">
+    <button class="essay-close" id="essay-close" aria-label="close">&times;</button>
+    <h2 id="essay-box-title"></h2>
+    <p class="essay-byline">moment solomon &middot; studio acquisitions</p>
+    <div class="essay-rule"></div>
+    <div class="essay-body" id="essay-body"></div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var list = document.getElementById('essay-list');
+      var box = document.getElementById('essay-box');
+      var titleEl = document.getElementById('essay-box-title');
+      var bodyEl = document.getElementById('essay-body');
+      var overlay = document.getElementById('essay-overlay');
+      var closeBtn = document.getElementById('essay-close');
+      var essays = document.querySelectorAll('.essay-source');
+      var lastTrigger = null;
+
+      function openEssay(essay, trigger) {
+        titleEl.textContent = essay.dataset.title;
+        bodyEl.innerHTML = essay.innerHTML;
+        box.scrollTop = 0;
+        document.body.classList.add('essay-open');
+        lastTrigger = trigger || null;
+        closeBtn.focus();
+        history.replaceState(null, '', '#' + essay.id);
+      }
+
+      function closeEssay() {
+        document.body.classList.remove('essay-open');
+        history.replaceState(null, '', location.pathname);
+        if (lastTrigger) lastTrigger.focus();
+      }
+
+      essays.forEach(function (essay) {
+        var li = document.createElement('li');
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'essay-link';
+        btn.textContent = essay.dataset.title;
+        btn.addEventListener('click', function () { openEssay(essay, btn); });
+        li.appendChild(btn);
+        if (essay.dataset.description) {
+          var desc = document.createElement('p');
+          desc.className = 'essay-description';
+          desc.textContent = essay.dataset.description;
+          li.appendChild(desc);
+        }
+        list.appendChild(li);
+      });
+
+      closeBtn.addEventListener('click', closeEssay);
+      overlay.addEventListener('click', closeEssay);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && document.body.classList.contains('essay-open')) closeEssay();
+      });
+
+      // direct links like essays.html#some-thoughts open that essay
+      function openFromHash() {
+        var target = location.hash && document.getElementById(location.hash.slice(1));
+        if (target && target.classList.contains('essay-source')) openEssay(target);
+      }
+      openFromHash();
+      window.addEventListener('hashchange', openFromHash);
+    });
+  </script>
+</body>
+</html>

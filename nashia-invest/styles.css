@@ -621,6 +621,194 @@ body {
   opacity: 1;
 }
 
+/* ── Sheet pages (About, FAQ): the studio photo is the top sheet of a stack.
+      On load it covers the whole page, then slides most of the way off to
+      the right, revealing the ivory sheet beneath. ── */
+
+.hang {
+  position: fixed;
+  top: -6vh;
+  left: 0;
+  width: 100vw;
+  height: 112vh;
+  z-index: 5;
+  pointer-events: none;
+  box-shadow: -22px 0 50px rgba(27, 42, 74, 0.22), -2px 0 6px rgba(27, 42, 74, 0.12);
+  transform: translateX(41vw) rotate(3deg);
+  animation: hangReveal 1.8s cubic-bezier(0.6, 0, 0.2, 1) both;
+}
+
+.hang img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 30% 100%;
+  display: block;
+}
+
+/* the edge of a second sheet in the stack, peeking out under the photo */
+.hang::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #F6F2E4;
+  box-shadow: -10px 0 26px rgba(27, 42, 74, 0.12);
+  transform: translateX(-26px) rotate(-1.8deg);
+}
+
+@keyframes hangReveal {
+  0%, 20% { transform: translateX(0) rotate(0deg); }
+  100% { transform: translateX(41vw) rotate(3deg); }
+}
+
+.sheet {
+  position: relative;
+  z-index: 1;
+  width: min(460px, 31vw);
+  margin-left: max(2rem, 5vw);
+  padding: 8rem 0 6rem;
+  color: var(--text);
+}
+
+.sheet-fade {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: sheetIn 0.9s ease forwards;
+  animation-delay: 1.1s;
+}
+
+.sheet-fade:nth-child(2) { animation-delay: 1.25s; }
+.sheet-fade:nth-child(n+3) { animation-delay: 1.4s; }
+
+@keyframes sheetIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sheet-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.sheet-subtitle {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  opacity: 0.6;
+}
+
+.sheet-line {
+  width: 50px;
+  height: 1px;
+  background: var(--gold);
+  margin: 2.5rem 0 3.5rem;
+}
+
+.sheet-item {
+  margin-bottom: 3.2rem;
+}
+
+.sheet-number {
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+}
+
+.sheet-question {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.35;
+  margin-bottom: 1rem;
+}
+
+.sheet-prose p {
+  font-size: 0.97rem;
+  line-height: 1.9;
+  opacity: 0.82;
+  margin-bottom: 1.1rem;
+}
+
+.sheet-prose p:last-child {
+  margin-bottom: 0;
+}
+
+.sheet-prose a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+}
+
+.sheet-prose a:hover {
+  border-bottom-color: var(--text);
+}
+
+.sheet-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem 2.6rem;
+  margin-top: 4rem;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  letter-spacing: 0.03em;
+  text-transform: lowercase;
+}
+
+.sheet-links a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201, 185, 154, 0.7);
+  padding-bottom: 2px;
+  transition: border-color 0.3s ease;
+}
+
+.sheet-links a:hover {
+  border-bottom-color: var(--text);
+}
+
+.sheet-owner {
+  margin-top: 4.5rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  color: var(--gray-light);
+}
+
+@media (max-width: 900px) {
+  /* phones: the sheet slides almost all the way off, leaving a sliver */
+  .hang {
+    transform: translateX(80vw) rotate(3deg);
+  }
+
+  @keyframes hangReveal {
+    0%, 20% { transform: translateX(0) rotate(0deg); }
+    100% { transform: translateX(80vw) rotate(3deg); }
+  }
+
+  .sheet {
+    width: calc(80vw - 3.2rem);
+    margin-left: 1.25rem;
+    padding-top: 7rem;
+  }
+
+  .sheet-links {
+    gap: 1rem 1.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hang, .sheet-fade {
+    animation: none;
+    opacity: 1;
+  }
+}
+
 /* ── Booking page ── */
 
 .page-title.booking-title {

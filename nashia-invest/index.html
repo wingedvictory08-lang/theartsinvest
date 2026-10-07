@@ -34,14 +34,20 @@
       max-width: 600px;
     }
 
+    /* ivory lettering in the site fonts, with a soft navy shadow so it reads over the photo */
+    .landing {
+      --marker: var(--bg);
+    }
+
     .landing-title {
       font-family: var(--font-heading);
-      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: var(--marker);
+      text-shadow: 0 1px 3px rgba(27, 42, 74, 0.9), 0 0 12px rgba(27, 42, 74, 0.6);
+      font-size: clamp(2.2rem, 5.5vw, 3.6rem);
       font-weight: 400;
       letter-spacing: 0.03em;
-      color: var(--bg);
-      text-shadow: 0 1px 3px rgba(27, 42, 74, 0.95), 0 0 10px rgba(27, 42, 74, 0.8), 0 0 24px rgba(27, 42, 74, 0.6);
-      margin-bottom: 3rem;
+      line-height: 1.15;
+      margin-bottom: 2.5rem;
     }
 
     .landing-line {
@@ -49,25 +55,6 @@
       height: 1px;
       background: var(--gold);
       margin: 0 auto 3rem;
-    }
-
-    .landing-description {
-      font-family: var(--font-body);
-      font-size: 1rem;
-      font-weight: 300;
-      line-height: 1.9;
-      color: var(--bg);
-      text-shadow: 0 1px 3px rgba(27, 42, 74, 0.95), 0 0 10px rgba(27, 42, 74, 0.8), 0 0 24px rgba(27, 42, 74, 0.6);
-      opacity: 0.92;
-      margin-bottom: 4rem;
-    }
-
-    .landing-description p {
-      margin-bottom: 1.4rem;
-    }
-
-    .landing-description p:last-child {
-      margin-bottom: 0;
     }
 
     .landing-links {
@@ -78,62 +65,46 @@
 
     .landing-links a {
       font-family: var(--font-heading);
-      font-size: 1.3rem;
+      color: var(--marker);
+      text-shadow: 0 1px 3px rgba(27, 42, 74, 0.9), 0 0 12px rgba(27, 42, 74, 0.6);
+      font-size: 1.5rem;
       font-weight: 400;
       letter-spacing: 0.04em;
-      color: var(--gold);
-      text-shadow: 0 1px 2px rgba(10, 16, 30, 0.95), 0 0 8px rgba(10, 16, 30, 0.7);
       text-decoration: none;
       position: relative;
-      transition: color 0.4s ease;
-      text-transform: lowercase;
+      transition: color 0.3s ease;
     }
 
-    /* a thin gold underline is always shown so these read as links */
+    /* thin underline so it reads as a link */
     .landing-links a::after {
       content: '';
       position: absolute;
+      left: 0;
+      right: 0;
       bottom: -5px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
       height: 1px;
-      background: var(--gold);
+      background: var(--marker);
       opacity: 0.6;
-      transition: opacity 0.4s ease;
+      transition: opacity 0.3s ease;
     }
 
     .landing-links a:hover {
-      color: var(--bg);
+      opacity: 0.8;
     }
 
     .landing-links a:hover::after {
-      opacity: 1;
-    }
-
-    /* second row: one link centred just under curate / invest */
-    .landing-secondary {
-      margin-top: 1.4rem;
-    }
-
-    /* small note hung under a link without shifting the row */
-    .landing-link-item {
-      position: relative;
+      opacity: 0.9;
     }
 
     .landing-note {
-      position: absolute;
-      top: calc(100% + 0.9rem);
-      left: 50%;
-      transform: translateX(-50%);
       font-family: var(--font-body);
-      font-size: 0.68rem;
+      color: var(--marker);
+      text-shadow: 0 1px 3px rgba(27, 42, 74, 0.9), 0 0 12px rgba(27, 42, 74, 0.6);
+      font-size: 0.72rem;
       font-weight: 400;
       letter-spacing: 0.1em;
-      white-space: nowrap;
-      color: var(--bg);
-      text-shadow: 0 1px 3px rgba(27, 42, 74, 0.95), 0 0 10px rgba(27, 42, 74, 0.8), 0 0 24px rgba(27, 42, 74, 0.6);
-      opacity: 0.75;
+      opacity: 0.85;
+      margin-top: 1.4rem;
     }
 
     /* availability note sitting just left of the booking pill */
@@ -206,15 +177,11 @@
       }
 
       .landing-links a {
-        font-size: 1.1rem;
-      }
-
-      .landing-description {
-        font-size: 0.92rem;
+        font-size: 1.3rem;
       }
 
       .landing-note {
-        font-size: 0.6rem;
+        font-size: 0.66rem;
       }
 
       .landing-status {
@@ -389,21 +356,11 @@
 
       <div class="landing-line landing-fade"></div>
 
-      <div class="landing-description landing-fade">
-        <p>Studio Acquisitions is an independent curatorial practice. I source, acquire, and curate fine art, vintage fashion, and jewelry. And when the project calls for it, the spaces they belong in.</p>
-        <p>My work's argument is swift: taste is a form of self-knowledge and perspective, and acquisition without it is aimless. Private sourcing, curatorial consultations, editorial writing, and spatial projects all draw from the same practice — knowing what you're searching for, researching the market, and identifying its value.</p>
-      </div>
-
       <div class="landing-links landing-fade">
-        <a href="https://studioacquisitions.substack.com/?utm_campaign=pub&amp;utm_medium=web">curate</a>
+        <a href="essays.html">curatorial theses</a>
       </div>
 
-      <div class="landing-links landing-secondary landing-fade">
-        <div class="landing-link-item">
-          <a href="https://portfolio.studioacquisitions.studio/#home">weekly artist case studies</a>
-          <span class="landing-note">Digital Collection coming soon</span>
-        </div>
-      </div>
+      <p class="landing-note landing-fade">Digital Collection coming soon</p>
     </div>
 
     <p class="landing-owner">&copy; 2026 Studio Acquisitions &middot; This site and business are owned by Moment Solomon.</p>
