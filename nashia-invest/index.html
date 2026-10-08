@@ -108,11 +108,27 @@
       margin-top: 0;
     }
 
-    /* homepage pills in a pastel gold */
+    /* homepage nav: plain ivory links with the gold underline, no pills */
     .site-nav-left a,
     .site-nav a.nav-booking {
-      background-color: #E9DCBE;
-      color: var(--text);
+      background: none;
+      padding: 0 0 3px;
+      margin: 0;
+      border-radius: 0;
+      color: var(--bg);
+      text-shadow: 0 1px 3px rgba(27, 42, 74, 0.9), 0 0 10px rgba(27, 42, 74, 0.6);
+      border-bottom: 1px solid var(--gold);
+      opacity: 1;
+      transition: border-color 0.3s ease, opacity 0.3s ease;
+    }
+
+    .site-nav-left a:hover,
+    .site-nav a.nav-booking:hover {
+      border-bottom-color: var(--bg);
+    }
+
+    .site-nav-left {
+      gap: 1.4rem;
     }
 
     /* availability note sitting just left of the booking pill */
