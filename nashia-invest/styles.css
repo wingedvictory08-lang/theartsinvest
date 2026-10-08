@@ -1032,6 +1032,19 @@ body {
   cursor: default;
 }
 
+.booking-etsy {
+  text-align: center;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  opacity: 0.6;
+}
+
+.booking-etsy a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+}
+
 .booking-error {
   font-size: 0.75rem;
   color: #c0392b;
