@@ -108,6 +108,80 @@
       margin-top: 0;
     }
 
+    /* announcements: the small line opens a preview box */
+    .announce {
+      position: relative;
+      display: inline-block;
+    }
+
+    .announce-toggle {
+      background: none;
+      border: none;
+      padding: 0 0 3px;
+      cursor: pointer;
+      border-bottom: 1px solid var(--gold);
+      text-transform: lowercase;
+    }
+
+    .announce-toggle:hover,
+    .announce-toggle[aria-expanded="true"] {
+      opacity: 1;
+    }
+
+    .announce-box {
+      position: absolute;
+      top: calc(100% + 0.9rem);
+      left: 50%;
+      z-index: 20;
+      width: min(340px, calc(100vw - 2.5rem));
+      transform: translateX(-50%);
+      background: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      box-shadow: 0 14px 40px rgba(27, 42, 74, 0.25);
+      padding: 1.3rem 1.5rem;
+      text-align: left;
+      animation: announceIn 0.3s ease both;
+    }
+
+    .announce-box[hidden] {
+      display: none;
+    }
+
+    @keyframes announceIn {
+      from { opacity: 0; transform: translate(-50%, -6px); }
+    }
+
+    .announce-box ul {
+      list-style: none;
+    }
+
+    .announce-box li {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      line-height: 1.6;
+      letter-spacing: 0.02em;
+      padding: 0.75rem 0;
+      border-top: 1px solid rgba(201, 185, 154, 0.5);
+    }
+
+    .announce-box li:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .announce-box li:last-child {
+      padding-bottom: 0;
+    }
+
+    .announce-box .announce-lead {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      line-height: 1.35;
+      letter-spacing: 0.01em;
+    }
+
     /* homepage nav: plain navy links with the gold underline, no pills */
     .site-nav-left a,
     .site-nav a.nav-booking {
@@ -399,11 +473,42 @@
 
       <div class="landing-line landing-fade"></div>
 
-      <p class="landing-note landing-fade">Digital Collection coming soon</p>
+      <div class="announce landing-fade">
+        <button type="button" class="landing-note announce-toggle" id="announce-toggle" aria-expanded="false" aria-controls="announce-box">announcements</button>
+
+        <!-- EDIT ANNOUNCEMENTS HERE — newest first. Add one <li> per announcement;
+             give the headline one class="announce-lead" for the larger lettering. -->
+        <div class="announce-box" id="announce-box" role="region" aria-label="announcements" hidden>
+          <ul>
+            <li class="announce-lead">Juror for Masur Museum&rsquo;s 64th Annual Juried Competition</li>
+            <li>Digital Collection coming soon</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <p class="landing-owner">&copy; 2026 Studio Acquisitions &middot; This site and business are owned by Moment Solomon.</p>
   </section>
 
+  <script>
+    (function () {
+      var toggle = document.getElementById('announce-toggle');
+      var box = document.getElementById('announce-box');
+      function setOpen(open) {
+        box.hidden = !open;
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      toggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        setOpen(box.hidden);
+      });
+      document.addEventListener('click', function (e) {
+        if (!box.hidden && !box.contains(e.target)) setOpen(false);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !box.hidden) { setOpen(false); toggle.focus(); }
+      });
+    })();
+  </script>
 </body>
 </html>
