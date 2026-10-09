@@ -68,9 +68,10 @@
       font-family: var(--font-heading);
       color: var(--marker);
       text-shadow: 0 1px 3px rgba(27, 42, 74, 0.9), 0 0 12px rgba(27, 42, 74, 0.6);
-      font-size: 0.72rem;
+      /* half the Studio Acquisitions title */
+      font-size: clamp(1.1rem, 2.75vw, 1.8rem);
       font-weight: 400;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.05em;
       text-decoration: none;
       position: relative;
       transition: color 0.3s ease;
@@ -101,9 +102,9 @@
       font-family: var(--font-body);
       color: var(--marker);
       text-shadow: 0 1px 3px rgba(27, 42, 74, 0.9), 0 0 12px rgba(27, 42, 74, 0.6);
-      font-size: 0.72rem;
+      font-size: clamp(1.1rem, 2.75vw, 1.8rem);
       font-weight: 400;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.05em;
       opacity: 0.85;
       margin-top: 0;
     }
@@ -287,14 +288,6 @@
 
       .landing-links {
         gap: 2.5rem;
-      }
-
-      .landing-links a {
-        font-size: 0.66rem;
-      }
-
-      .landing-note {
-        font-size: 0.66rem;
       }
 
       .landing-status {
