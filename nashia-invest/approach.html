@@ -3,139 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="How Studio Acquisitions evaluates Chicago real estate: a research-first market thesis, acquisition criteria, and value creation that starts before closing.">
-  <title>Investment Approach &amp; Criteria | Studio Acquisitions</title>
+  <meta name="description" content="Our approach to multifamily investment: market thesis, acquisition criteria, and value creation strategy.">
+  <title>Investment Approach | Studio Acquisitions</title>
   <link rel="stylesheet" href="styles.css">
-  <!-- Structured data (schema.org JSON-LD) for search engines -->
   <script type="application/ld+json">
-{
+  {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "AboutPage",
+        "@type": "WebPage",
         "@id": "https://studioacquisitions.studio/approach.html#webpage",
         "url": "https://studioacquisitions.studio/approach.html",
-        "name": "Investment Approach & Criteria | Studio Acquisitions",
-        "description": "How Studio Acquisitions evaluates Chicago real estate: a research-first market thesis, acquisition criteria, and value creation that starts before closing.",
-        "isPartOf": {
-          "@id": "https://studioacquisitions.studio/#website"
-        },
-        "about": {
-          "@id": "https://studioacquisitions.studio/#business"
-        },
-        "publisher": {
-          "@id": "https://studioacquisitions.studio/#business"
-        },
-        "inLanguage": "en-US",
-        "breadcrumb": {
-          "@id": "https://studioacquisitions.studio/approach.html#breadcrumb"
-        }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://studioacquisitions.studio/approach.html#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Studio Acquisitions",
-            "item": "https://studioacquisitions.studio/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Investment Approach & Criteria",
-            "item": "https://studioacquisitions.studio/approach.html"
-          }
-        ]
+        "name": "Investment Approach | Studio Acquisitions",
+        "description": "Our approach to multifamily investment: market thesis, acquisition criteria, and value creation strategy.",
+        "isPartOf": {"@id": "https://studioacquisitions.studio/#website"},
+        "inLanguage": "en-US"
       }
     ]
   }
   </script>
 </head>
-<body>
-
-  <!-- Back to Studio Acquisitions landing page -->
-  <a href="index.html" class="site-home-link">&larr; studio acquisitions</a>
-
-  <!-- Navigation -->
-  <nav class="site-nav">
-    <a href="invest.html">home</a>
-    <a href="portfolio.html">portfolio</a>
-  </nav>
-
-  <div class="page-wrapper">
-
-    <h1 class="page-title fade-in">Approach</h1>
-
-    <!-- Section 1 -->
-    <div class="approach-section fade-in">
-      <!-- REPLACE: APPROACH SECTION 1 — e.g. your market thesis, why this asset class -->
-      <p class="approach-number">01</p>
-      <h2 class="approach-heading">Market Thesis</h2>
-      <p class="approach-text">Based in Chicago's strongest residential neighborhoods during a period of sustained demand and significant infrastructure investment, I prioritize well-located properties at prices below their value. Assets the broader market has overlooked — based on seller circumstances, extended listing periods, and untapped potential. The best opportunities can be found through research, not blind competition.</p>
-    </div>
-
-    <!-- Section 2 -->
-    <div class="approach-section fade-in">
-      <!-- REPLACE: APPROACH SECTION 2 — e.g. your acquisition criteria, what you look for -->
-      <p class="approach-number">02</p>
-      <h2 class="approach-heading">Acquisition Criteria</h2>
-      <p class="approach-text">Every property I recommend has demonstrated appreciation and strong rental demand. Acquired at or below comparable sales, these verified rental-friendly, multi-family, mixed-use units often make the case for themselves. </p>
-    </div>
-
-    <!-- Section 3 -->
-    <div class="approach-section fade-in">
-      <!-- REPLACE: APPROACH SECTION 3 — e.g. your value-add strategy, how you reposition properties -->
-      <p class="approach-number">03</p>
-      <h2 class="approach-heading">Value Creation</h2>
-      <p class="approach-text">I trust our returns because I assess them before closing. Where zoning permits, I evaluate repositioning opportunities that add value without additional risk at acquisition. Value creation starts before acquisition, and afterwards, we focus on what's controllable.</p>
-    </div>
-
-    <!-- Closing line -->
-    <div class="closing-line fade-in">
-      <!-- REPLACE: CLOSING LINE -->
-      <p>Interested in exploring an opportunity with me?</p>
-      <a href="#" id="approach-inquiries">get in touch &rarr;</a>
-    </div>
-
-    <!-- Footer -->
-    <footer class="site-footer fade-in">
-      <p class="disclaimer">This site does not constitute an offer to sell or a solicitation of an offer to buy any securities. All investments involve risk.</p>
-    </footer>
-
-  </div>
-
-  <!-- Inquiries trigger -->
-  <div class="inquiries-trigger">
-    <a href="#" id="inquiries-open">inquiries</a>
-  </div>
-
-  <!-- Inquiries overlay -->
-  <div class="inquiries-overlay" id="inquiries-overlay"></div>
-
-  <!-- Inquiries popup -->
-  <div class="inquiries-popup" id="inquiries-popup">
-    <button class="inquiries-close" id="inquiries-close">&times;</button>
-    <!-- CONNECT THIS FORM — wire the form action to your email service, Formspree, or Netlify Forms. Automated email sequence handles qualification. -->
-   <form action="https://formspree.io/f/xjykkzdd" method="POST">
-  <input type="email" name="email" placeholder="your email" required>
-  <button type="submit">submit</button>
-</form>
-  </div>
-
-  <script src="script.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var approachLink = document.getElementById('approach-inquiries');
-      if (approachLink) {
-        approachLink.addEventListener('click', function (e) {
-          e.preventDefault();
-          document.getElementById('inquiries-overlay').classList.add('open');
-          document.getElementById('inquiries-popup').classList.add('open');
-        });
-      }
-    });
-  </script>
+<body class="page-approach">
+<header class="editorial-masthead"><a class="editorial-wordmark" href="index.html">Studio Acquisitions</a><nav aria-label="Primary navigation"><a href="index.html">studio</a><a href="invest.html">invest</a><a href="approach.html">approach</a><a href="portfolio.html">portfolio</a></nav></header>
+<div class="page-wrapper">
+  <div class="magazine-meta"><span>STUDIO ACQUISITIONS · INVESTMENT PRACTICE</span><span>02 / APPROACH</span></div>
+  <h1 class="page-title fade-in">Approach</h1>
+  <div class="approach-section fade-in"><p class="approach-number">01</p><h2 class="approach-heading">Market Thesis</h2><p class="approach-text">Based in Chicago's strongest residential neighborhoods during a period of sustained demand and significant infrastructure investment, I prioritize well-located properties at prices below their value. Assets the broader market has overlooked — based on seller circumstances, extended listing periods, and untapped potential. The best opportunities can be found through research, not blind competition.</p></div>
+  <div class="approach-section fade-in"><p class="approach-number">02</p><h2 class="approach-heading">Acquisition Criteria</h2><p class="approach-text">Every property I recommend has demonstrated appreciation and strong rental demand. Acquired at or below comparable sales, these verified rental-friendly, multi-family, mixed-use units often make the case for themselves. </p></div>
+  <div class="approach-section fade-in"><p class="approach-number">03</p><h2 class="approach-heading">Value Creation</h2><p class="approach-text">I trust our returns because I assess them before closing. Where zoning permits, I evaluate repositioning opportunities that add value without additional risk at acquisition. Value creation starts before acquisition, and afterwards, we focus on what's controllable.</p></div>
+  <div class="closing-line fade-in"><p>Interested in exploring an opportunity with me?</p><a href="#" id="approach-inquiries">get in touch &rarr;</a></div>
+  <footer class="site-footer fade-in"><p class="disclaimer">This site does not constitute an offer to sell or a solicitation of an offer to buy any securities. All investments involve risk.</p></footer>
+</div>
+<div class="inquiries-trigger"><a href="#" id="inquiries-open">inquiries</a></div>
+<div class="inquiries-overlay" id="inquiries-overlay"></div>
+<div class="inquiries-popup" id="inquiries-popup"><button class="inquiries-close" id="inquiries-close">&times;</button><form action="https://formspree.io/f/xjykkzdd" method="POST"><input type="email" name="email" placeholder="your email" required><button type="submit">submit</button></form></div>
+<script src="script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var link = document.getElementById('approach-inquiries');
+  if (link) link.addEventListener('click', function (event) { event.preventDefault(); document.getElementById('inquiries-overlay').classList.add('open'); document.getElementById('inquiries-popup').classList.add('open'); });
+});
+</script>
 </body>
 </html>
