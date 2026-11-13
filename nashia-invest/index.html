@@ -5,60 +5,420 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Studio Acquisitions is the independent curatorial practice of Moment Solomon offering private sourcing in jewelry, fashion, and fine art. Bespoke web designs and curatorial consultations are a regular part of the practice. Currently accepting clients.">
   <title>Studio Acquisitions — Moment Solomon | Independent Curator &amp; Private Sourcer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="styles.css">
-  <meta name="google-site-verification" content="google-site-verification-token-placeholder">
-  <meta property="og:site_name" content="Studio Acquisitions">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://studioacquisitions.studio/">
-  <meta property="og:title" content="Studio Acquisitions — Moment Solomon | Independent Curator &amp; Private Sourcer">
-  <meta property="og:description" content="Studio Acquisitions is the independent curatorial practice of Moment Solomon offering private sourcing in jewelry, fashion, and fine art. Bespoke web designs and curatorial consultations are a regular part of the practice. Currently accepting clients.">
-  <meta property="og:image" content="https://studioacquisitions.studio/nashia-invest/IMG_1352.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Studio Acquisitions — Moment Solomon | Independent Curator &amp; Private Sourcer">
-  <meta name="twitter:description" content="Studio Acquisitions is the independent curatorial practice of Moment Solomon offering private sourcing in jewelry, fashion, and fine art. Bespoke web designs and curatorial consultations are a regular part of the practice. Currently accepting clients.">
-  <meta name="twitter:image" content="https://studioacquisitions.studio/nashia-invest/IMG_1352.jpg">
-  <link rel="canonical" href="https://studioacquisitions.studio/">
-  <link rel="icon" href="data:,">
+  <style>
+    /* ── Landing page ── */
+
+    .landing {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 4rem 2rem 6.5rem;
+      overflow: hidden;
+    }
+
+    .landing-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: url('studio-bg.jpg') center bottom / cover no-repeat;
+    }
+
+    .landing-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+    }
+
+    /* ivory lettering in the site fonts, with a soft navy shadow so it reads over the photo */
+    .landing {
+      --marker: var(--bg);
+    }
+
+    .landing-title {
+      font-family: var(--font-heading);
+      color: var(--marker);
+      text-shadow: 0 1px 3px rgba(27, 42, 74, 0.9), 0 0 12px rgba(27, 42, 74, 0.6);
+      font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      line-height: 1.15;
+      margin-bottom: 2.5rem;
+    }
+
+    .landing-line {
+      width: 50px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 3rem;
+    }
+
+    .landing-links {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .landing-links a {
+      font-family: var(--font-heading);
+      color: var(--marker);
+      text-shadow: 0 1px 3px rgba(27, 42, 74, 0.9), 0 0 12px rgba(27, 42, 74, 0.6);
+      /* half the Studio Acquisitions title */
+      font-size: clamp(1.1rem, 2.75vw, 1.8rem);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    /* thin underline so it reads as a link */
+    .landing-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -5px;
+      height: 1px;
+      background: var(--marker);
+      opacity: 0.6;
+      transition: opacity 0.3s ease;
+    }
+
+    .landing-links a:hover {
+      opacity: 0.8;
+    }
+
+    .landing-links a:hover::after {
+      opacity: 0.9;
+    }
+
+    .landing-note {
+      font-family: var(--font-body);
+      color: var(--marker);
+      text-shadow: 0 1px 3px rgba(27, 42, 74, 0.9), 0 0 12px rgba(27, 42, 74, 0.6);
+      font-size: clamp(1.1rem, 2.75vw, 1.8rem);
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      opacity: 0.85;
+      margin-top: 0;
+    }
+
+    /* announcements: the small line opens a preview box */
+    .announce {
+      position: relative;
+      display: inline-block;
+    }
+
+    .announce-toggle {
+      background: none;
+      border: none;
+      padding: 0 0 3px;
+      cursor: pointer;
+      border-bottom: 1px solid var(--gold);
+      text-transform: lowercase;
+    }
+
+    .announce-toggle:hover,
+    .announce-toggle[aria-expanded="true"] {
+      opacity: 1;
+    }
+
+    .announce-box {
+      position: absolute;
+      top: calc(100% + 0.9rem);
+      left: 50%;
+      z-index: 20;
+      width: min(340px, calc(100vw - 2.5rem));
+      transform: translateX(-50%);
+      background: var(--bg);
+      color: var(--text);
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      box-shadow: 0 14px 40px rgba(27, 42, 74, 0.25);
+      padding: 1.3rem 1.5rem;
+      text-align: left;
+      animation: announceIn 0.3s ease both;
+    }
+
+    .announce-box[hidden] {
+      display: none;
+    }
+
+    @keyframes announceIn {
+      from { opacity: 0; transform: translate(-50%, -6px); }
+    }
+
+    .announce-box ul {
+      list-style: none;
+    }
+
+    .announce-box li {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      line-height: 1.6;
+      letter-spacing: 0.02em;
+      padding: 0.75rem 0;
+      border-top: 1px solid rgba(201, 185, 154, 0.5);
+    }
+
+    .announce-box li:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .announce-box li:last-child {
+      padding-bottom: 0;
+    }
+
+    .announce-box .announce-lead {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      line-height: 1.35;
+      letter-spacing: 0.01em;
+    }
+
+    /* homepage nav: plain navy links with the gold underline, no pills */
+    .site-nav-left a,
+    .site-nav a.nav-booking {
+      background: none;
+      padding: 0 0 3px;
+      margin: 0;
+      border-radius: 0;
+      color: var(--text);
+      text-shadow: none;
+      border-bottom: 1px solid var(--gold);
+      opacity: 1;
+      transition: border-color 0.3s ease, opacity 0.3s ease;
+    }
+
+    .site-nav-left a:hover,
+    .site-nav a.nav-booking:hover {
+      border-bottom-color: var(--text);
+    }
+
+    .site-nav-left {
+      gap: 1.4rem;
+    }
+
+    /* on phones the top of the photo is the black paper, so navy would
+       disappear; keep the links ivory there */
+    @media (max-width: 600px) {
+      .site-nav-left a,
+      .site-nav a.nav-booking {
+        color: var(--bg);
+        text-shadow: 0 1px 3px rgba(27, 42, 74, 0.9), 0 0 10px rgba(27, 42, 74, 0.6);
+      }
+
+      .site-nav-left a:hover,
+      .site-nav a.nav-booking:hover {
+        border-bottom-color: var(--bg);
+      }
+    }
+
+    /* availability note sitting just left of the booking pill */
+    .landing-nav {
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .landing-status {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: lowercase;
+      color: var(--bg);
+      text-shadow: 0 1px 3px rgba(27, 42, 74, 0.95), 0 0 10px rgba(27, 42, 74, 0.8);
+      opacity: 0.85;
+      white-space: nowrap;
+    }
+
+    /* ownership line, pinned small to the bottom of the landing */
+    .landing-owner {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 1.25rem;
+      z-index: 1;
+      padding: 0 1.5rem;
+      font-family: var(--font-body);
+      font-size: 0.6rem;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: var(--bg);
+      text-shadow: 0 1px 3px rgba(27, 42, 74, 0.95), 0 0 10px rgba(27, 42, 74, 0.8);
+      opacity: 0.7;
+    }
+
+    /* ── Landing fade-in sequencing ── */
+
+    .landing-fade {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: landingIn 0.9s ease forwards;
+    }
+
+    .landing-fade:nth-child(1) { animation-delay: 0.15s; }
+    .landing-fade:nth-child(2) { animation-delay: 0.4s; }
+    .landing-fade:nth-child(3) { animation-delay: 0.6s; }
+    .landing-fade:nth-child(4) { animation-delay: 0.85s; }
+    .landing-fade:nth-child(5) { animation-delay: 1.05s; }
+
+    @keyframes landingIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .landing {
+        padding: 3rem 1.5rem 6.5rem;
+      }
+
+      .landing-bg {
+        background-size: auto 200%;
+      }
+
+      .landing-links {
+        gap: 2.5rem;
+      }
+
+      .landing-status {
+        font-size: 0.6rem;
+      }
+    }
+
+    /* very narrow phones: stack the availability note under the booking
+       pill so it clears the faq pill on the left */
+    @media (max-width: 410px) {
+      .landing-nav {
+        flex-direction: column-reverse;
+        align-items: flex-end;
+        gap: 0.7rem;
+      }
+
+      .landing {
+        padding-top: 6.5rem;
+      }
+    }
+  </style>
+  <!-- Structured data (schema.org JSON-LD) for search engines -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
-        "@id": "https://studioacquisitions.studio/#business",
-        "name": "Studio Acquisitions",
-        "url": "https://studioacquisitions.studio/",
-        "email": "contactme@studioacquisitions.studio",
-        "description": "An independent curatorial practice sourcing and acquiring fine art, vintage fashion, and jewelry, with private consultations and Chicago multifamily co-investment.",
-        "founder": { "@id": "https://studioacquisitions.studio/#person" },
-        "areaServed": "Chicago and remote clients",
-        "knowsAbout": [
-          "art curation",
-          "private sourcing",
-          "fine art",
-          "vintage fashion",
-          "jewelry",
-          "multifamily co-investment"
-        ],
-        "sameAs": ["https://www.instagram.com/lostmomentstudio/"]
-      },
-      {
         "@type": "Person",
         "@id": "https://studioacquisitions.studio/#person",
         "name": "Moment Solomon",
-        "jobTitle": ["Art Curator", "Writer", "Founder"],
+        "jobTitle": "Independent Curator & Private Sourcer",
+        "url": "https://studioacquisitions.studio/",
+        "email": "mailto:contactme@studioacquisitions.studio",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Chicago",
+          "addressRegion": "IL",
+          "addressCountry": "US"
+        },
+        "worksFor": {
+          "@id": "https://studioacquisitions.studio/#business"
+        },
+        "knowsAbout": [
+          "Fine art",
+          "Vintage fashion",
+          "Jewelry",
+          "Private sourcing",
+          "Art curation",
+          "Multifamily real estate"
+        ],
+        "sameAs": [
+          "https://studioacquisitions.substack.com/",
+          "https://www.instagram.com/lostmomentstudio/"
+        ]
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://studioacquisitions.studio/#business",
+        "name": "Studio Acquisitions",
+        "url": "https://studioacquisitions.studio/",
+        "description": "Studio Acquisitions is the independent curatorial practice of Moment Solomon offering private sourcing in jewelry, fashion, and fine art. Bespoke web designs and curatorial consultations are a regular part of the practice. Currently accepting clients.",
+        "image": "https://studioacquisitions.studio/studio-bg.jpg",
         "email": "contactme@studioacquisitions.studio",
-        "worksFor": { "@id": "https://studioacquisitions.studio/#business" },
-        "sameAs": ["https://www.instagram.com/lostmomentstudio/"]
+        "telephone": "+1-334-718-2410",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Chicago",
+          "addressRegion": "IL",
+          "addressCountry": "US"
+        },
+        "areaServed": [
+          {
+            "@type": "City",
+            "name": "Chicago"
+          },
+          {
+            "@type": "Country",
+            "name": "United States"
+          }
+        ],
+        "founder": {
+          "@id": "https://studioacquisitions.studio/#person"
+        },
+        "sameAs": [
+          "https://studioacquisitions.substack.com/",
+          "https://www.instagram.com/lostmomentstudio/"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Studio Acquisitions services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Private Sourcing",
+                "description": "Sourcing and acquisition of fine art, vintage fashion, and jewelry to a client brief."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Curatorial Consultation"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Custom Web Design"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Multifamily Real Estate Co-Investment"
+              }
+            }
+          ]
+        }
       },
       {
         "@type": "WebSite",
         "@id": "https://studioacquisitions.studio/#website",
         "url": "https://studioacquisitions.studio/",
         "name": "Studio Acquisitions",
-        "publisher": { "@id": "https://studioacquisitions.studio/#business" },
+        "publisher": {
+          "@id": "https://studioacquisitions.studio/#business"
+        },
         "inLanguage": "en-US"
       },
       {
@@ -67,33 +427,81 @@
         "url": "https://studioacquisitions.studio/",
         "name": "Studio Acquisitions — Moment Solomon | Independent Curator & Private Sourcer",
         "description": "Studio Acquisitions is the independent curatorial practice of Moment Solomon offering private sourcing in jewelry, fashion, and fine art. Bespoke web designs and curatorial consultations are a regular part of the practice. Currently accepting clients.",
-        "isPartOf": { "@id": "https://studioacquisitions.studio/#website" },
-        "about": { "@id": "https://studioacquisitions.studio/#business" },
-        "mainEntity": { "@id": "https://studioacquisitions.studio/#person" },
+        "isPartOf": {
+          "@id": "https://studioacquisitions.studio/#website"
+        },
+        "about": {
+          "@id": "https://studioacquisitions.studio/#business"
+        },
+        "mainEntity": {
+          "@id": "https://studioacquisitions.studio/#person"
+        },
         "inLanguage": "en-US"
       }
     ]
   }
   </script>
-  <style>
-    /* Respect the existing studio image and landing composition. */
-    .landing-line { background: transparent !important; }
-    .announce-toggle { border-bottom-color: transparent !important; }
-    .site-nav-left a, .site-nav a.nav-booking { border-bottom-color: transparent !important; }
-    .site-nav a.nav-booking { color: var(--text) !important; background: none !important; border-radius: 0 !important; padding: 0 0 3px !important; }
-    @media (max-width: 600px) { .site-nav-left a, .site-nav a.nav-booking { color: var(--bg) !important; } }
-  </style>
 </head>
-<body class="restrained page-home">
-  <nav class="site-nav-left"><a href="about.html">about</a><a href="faq.html">faq</a><a href="services.html">services</a></nav>
-  <nav class="site-nav landing-nav"><span class="landing-status">currently accepting clients</span><a href="booking.html" class="nav-booking">book a service</a></nav>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav-left">
+    <a href="about.html">about</a>
+    <a href="faq.html">faq</a>
+  </nav>
+  <nav class="site-nav landing-nav">
+    <span class="landing-status">currently accepting clients</span>
+    <a href="booking.html" class="nav-booking">book a service</a>
+  </nav>
+
   <section class="landing">
     <div class="landing-bg" role="img" aria-label="Studio wall in charcoal and ink: drawings pinned above a large charcoal portrait of an upturned face on black paper"></div>
-    <div class="landing-content"><div class="landing-links landing-fade"><a href="essays.html">curatorial theses</a></div><h1 class="landing-title landing-fade">Studio Acquisitions</h1><div class="landing-line landing-fade"></div><div class="announce landing-fade"><button type="button" class="landing-note announce-toggle" id="announce-toggle" aria-expanded="false" aria-controls="announce-box">announcements</button><div class="announce-box" id="announce-box" role="region" aria-label="announcements" hidden><ul><li class="announce-lead">Juror for Masur Museum&rsquo;s 64th Annual Juried Competition</li><li>Digital Collection coming soon</li></ul></div></div></div>
+
+    <div class="landing-content">
+      <div class="landing-links landing-fade">
+        <a href="essays.html">curatorial theses</a>
+      </div>
+
+      <h1 class="landing-title landing-fade">Studio Acquisitions</h1>
+
+      <div class="landing-line landing-fade"></div>
+
+      <div class="announce landing-fade">
+        <button type="button" class="landing-note announce-toggle" id="announce-toggle" aria-expanded="false" aria-controls="announce-box">announcements</button>
+
+        <!-- EDIT ANNOUNCEMENTS HERE — newest first. Add one <li> per announcement;
+             give the headline one class="announce-lead" for the larger lettering. -->
+        <div class="announce-box" id="announce-box" role="region" aria-label="announcements" hidden>
+          <ul>
+            <li class="announce-lead">Juror for Masur Museum&rsquo;s 64th Annual Juried Competition</li>
+            <li>Digital Collection coming soon</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <p class="landing-owner">&copy; 2026 Studio Acquisitions &middot; This site and business are owned by Moment Solomon.</p>
   </section>
+
   <script>
-    (function(){var toggle=document.getElementById('announce-toggle');var box=document.getElementById('announce-box');function setOpen(open){toggle.setAttribute('aria-expanded',String(open));box.hidden=!open;}toggle.addEventListener('click',function(){setOpen(toggle.getAttribute('aria-expanded')!=='true');});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&toggle.getAttribute('aria-expanded')==='true'){setOpen(false);toggle.focus();}});document.addEventListener('click',function(e){if(!toggle.contains(e.target)&&!box.contains(e.target))setOpen(false);});})();
+    (function () {
+      var toggle = document.getElementById('announce-toggle');
+      var box = document.getElementById('announce-box');
+      function setOpen(open) {
+        box.hidden = !open;
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+      toggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        setOpen(box.hidden);
+      });
+      document.addEventListener('click', function (e) {
+        if (!box.hidden && !box.contains(e.target)) setOpen(false);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !box.hidden) { setOpen(false); toggle.focus(); }
+      });
+    })();
   </script>
 </body>
 </html>
