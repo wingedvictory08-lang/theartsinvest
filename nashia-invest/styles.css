@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@200;300;400;500;600&display=swap');
 
 *,
 *::before,
@@ -1410,3 +1410,308 @@ body.page-services .services-index { display: flex; flex-wrap: wrap; }
 .sample-banner-label { font-weight:500; letter-spacing:.24em; text-transform:uppercase; color:var(--gold); }
 .sample-banner a { color:var(--bg); text-decoration:none; border-bottom:1px solid var(--gold); }
 .sample-banner a:hover, .sample-banner a:focus-visible { color:var(--gold); }
+
+
+/* ══ Site standards ══════════════════════════════════════════════════════
+   One type scale for every page, taken from the curatorial theses page:
+   labels .7rem · small text .85rem · body .97rem/1.9 · item titles 1.7rem
+   italic serif · page titles 2rem italic serif. Links share one treatment. */
+
+/* navigation: the same lettering on every page, gold underline marks the
+   current page and the enquire link */
+.editorial-masthead nav a,
+.home-masthead nav a {
+  font: 400 0.7rem/1.5 var(--font-body);
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 3px;
+  opacity: 1;
+  transition: border-color 0.3s ease;
+}
+.editorial-masthead nav a { color: var(--text); }
+.editorial-masthead nav a:hover,
+.editorial-masthead nav a:focus-visible,
+.editorial-masthead nav a[aria-current="page"],
+.editorial-masthead .nav-cta,
+.home-masthead nav a:hover,
+.home-masthead nav a:focus-visible,
+.home-masthead .nav-cta { border-bottom-color: var(--gold); }
+.editorial-masthead nav { gap: 0.7rem 1.6rem; }
+
+/* labels */
+.magazine-meta,
+.editorial-kicker,
+.faq-chapter,
+.faq-chapter p,
+.services-number,
+body.page-faq .sheet-number,
+body.page-approach .approach-number,
+body.page-portfolio .entry-number,
+.spread-rail p,
+.spread-rail span,
+.identifier-line,
+body.page-invest .identifier-line {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: lowercase;
+  color: var(--gold);
+  opacity: 1;
+}
+.magazine-meta { border-bottom-color: rgba(201, 185, 154, 0.45); }
+
+/* page titles */
+body.page-faq .sheet-title,
+body.page-booking .booking-title,
+body.page-services .services-heading h1,
+body.page-approach .page-title,
+body.page-portfolio .page-title,
+body.page-invest .investment-cover .hero-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+body.page-faq .sheet-title,
+body.page-services .services-heading h1,
+body.page-approach .page-title,
+body.page-portfolio .page-title { padding-top: 2.5rem; margin-bottom: 0.6rem; }
+body.page-booking .booking-title { padding-top: 3rem; margin-bottom: 0.6rem; }
+
+/* item titles */
+body.page-faq .sheet-question,
+body.page-services .services-audience h2,
+body.page-approach .approach-heading,
+.spread-rail h2,
+body.page-portfolio .entry-title {
+  font-family: var(--font-heading);
+  font-size: 1.7rem;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+body.page-services .service-options h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* body text */
+body.page-faq .sheet-prose p,
+.spread-copy > p,
+.spread-copy > p + p,
+body.page-approach .approach-text,
+body.page-invest .summary p,
+body.page-portfolio .entry-text {
+  font-family: var(--font-body);
+  font-size: 0.97rem;
+  font-weight: 300;
+  line-height: 1.9;
+  opacity: 0.85;
+  color: var(--text);
+}
+.spread-copy > p + p { margin-top: 1.3rem; }
+
+/* small descriptive text */
+body.page-faq .sheet-subtitle,
+body.page-services .services-deck,
+body.page-booking .booking-intro,
+body.page-services .service-options article p,
+body.page-invest .investment-cover .hero-tagline {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-style: normal;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.7;
+  text-transform: none;
+  opacity: 0.6;
+}
+body.page-services .service-options article > span { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: lowercase; color: var(--gold); }
+
+/* links inside text: navy with a gold underline, everywhere */
+.sheet-prose a,
+.spread-copy a,
+.booking-etsy a,
+body.page-faq .sheet-prose a,
+body.page-booking .booking-etsy a,
+.essay-body a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+  transition: border-color 0.3s ease;
+}
+.sheet-prose a:hover,
+.spread-copy a:hover,
+.booking-etsy a:hover,
+body.page-faq .sheet-prose a:hover,
+body.page-booking .booking-etsy a:hover { border-bottom-color: var(--text); }
+
+/* footers carry the credit only */
+.editorial-footer { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: lowercase; color: var(--gold); border-top-color: rgba(201, 185, 154, 0.45); }
+
+/* essays page: room for the shared masthead */
+body.page-essays .page-wrapper { padding-top: 0; }
+body.page-essays .essay-list { padding-top: 3rem; }
+
+/* FAQ spacing at the new sizes */
+body.page-faq .sheet-item { padding: 1.6rem 0; border-bottom-color: rgba(201, 185, 154, 0.45); }
+body.page-faq .faq-chapter { border-top-color: rgba(201, 185, 154, 0.45); padding: 1.4rem 0 0.4rem; }
+
+/* services: the section index in the site's serif, larger, in tidy columns */
+body.page-services .services-index {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.9rem 2rem;
+  padding: 1.6rem 0 2rem;
+  border-bottom: 1px solid rgba(201, 185, 154, 0.45);
+}
+body.page-services .services-index a {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-style: italic;
+  letter-spacing: 0;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 0.15rem;
+  justify-self: start;
+}
+body.page-services .services-index a:hover { border-bottom-color: var(--text); }
+body.page-services .services-audience { scroll-margin-top: 1.5rem; border-bottom: 1px solid rgba(201, 185, 154, 0.45); }
+
+/* booking: the fill-in field under the service dropdown */
+.booking-form .service-other { margin-top: -0.6rem; }
+
+/* sample investment pages at the shared sizes */
+body.page-invest .investment-cover { min-height: 0; padding: 5rem 2rem 3rem; }
+body.page-invest .investment-cover .magazine-meta { position: static; align-self: stretch; margin-bottom: 3rem; }
+
+/* ── About: Vogue-style cover ── */
+.vogue-cover {
+  position: relative;
+  overflow: hidden;
+  width: min(100%, 600px);
+  aspect-ratio: 3 / 4;
+  min-height: 0;
+  margin: 0 auto;
+  border: 0;
+  background: #1b1b1b;
+  container-type: inline-size;
+  color: var(--bg);
+}
+.vogue-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 100%;
+}
+.vogue-cover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(17, 17, 17, 0.55), rgba(17, 17, 17, 0) 38%);
+  pointer-events: none;
+}
+.vogue-masthead,
+.vogue-issue,
+.vogue-lines,
+.vogue-star { position: absolute; z-index: 1; margin: 0; }
+.vogue-masthead {
+  top: 3cqw;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 7.6cqw;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--text);
+}
+.vogue-issue {
+  top: 12.5cqw;
+  right: 5cqw;
+  font: 500 1.9cqw/1.3 var(--font-body);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.vogue-lines { top: 56%; left: 5cqw; display: grid; gap: 4.5cqw; }
+.vogue-lines p { margin: 0; }
+.vogue-line,
+.vogue-sub {
+  display: block;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  text-shadow: 0 1px 3px rgba(27, 42, 74, 0.9), 0 0 12px rgba(27, 42, 74, 0.6);
+}
+.vogue-line { font-weight: 300; font-size: 3.9cqw; line-height: 1.15; letter-spacing: 0.01em; }
+.vogue-sub { font-weight: 600; font-size: 2.5cqw; line-height: 1.2; letter-spacing: 0.04em; margin-top: 0.6cqw; }
+.vogue-star { left: 0; right: 0; bottom: 6cqw; text-align: center; }
+.vogue-star h1 {
+  font-family: var(--font-body);
+  font-weight: 200;
+  font-size: 9.6cqw;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--bg);
+  margin: 0;
+}
+.vogue-quote {
+  margin: 2.2cqw 0 0;
+  font: 600 2.4cqw/1.2 var(--font-body);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── About: pages fold over like a magazine ── */
+.magazine-pages { position: relative; perspective: 2600px; }
+.magazine-page { animation: none; }
+.magazine-spread { position: relative; min-height: min(62vh, 560px); }
+.magazine-pages.is-turning > [data-magazine-page] { position: absolute; top: 0; left: 0; right: 0; margin-left: auto; margin-right: auto; }
+.page-under { z-index: 1; }
+.page-fold-over,
+.page-fold-back {
+  z-index: 2;
+  transform-origin: left center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  animation-duration: 0.95s;
+  animation-timing-function: cubic-bezier(0.45, 0.05, 0.3, 1);
+  animation-fill-mode: forwards;
+}
+.page-fold-over { animation-name: foldOver; }
+.page-fold-back { animation-name: foldBack; }
+@keyframes foldOver {
+  from { transform: rotateY(0deg); box-shadow: 0 0 0 rgba(27, 42, 74, 0); }
+  to { transform: rotateY(-180deg); box-shadow: -30px 0 60px rgba(27, 42, 74, 0.25); }
+}
+@keyframes foldBack {
+  from { transform: rotateY(-180deg); box-shadow: -30px 0 60px rgba(27, 42, 74, 0.25); }
+  to { transform: rotateY(0deg); box-shadow: 0 0 0 rgba(27, 42, 74, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-fold-over, .page-fold-back { animation: none; }
+}
+
+@media (max-width: 760px) {
+  body.page-services .services-index { grid-template-columns: 1fr; }
+  .magazine-spread { min-height: 0; }
+  .editorial-masthead nav { gap: 0.55rem 1.05rem; }
+  .spread-rail h2 { font-size: 1.7rem; }
+  body.page-invest .investment-cover { padding: 3rem 1.2rem 2rem; }
+}

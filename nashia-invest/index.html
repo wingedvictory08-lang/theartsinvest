@@ -183,60 +183,54 @@
       letter-spacing: 0.01em;
     }
 
-    /* homepage nav: plain navy links with the gold underline, no pills */
-    .site-nav-left a,
-    .site-nav a.nav-booking {
-      background: none;
-      padding: 0 0 3px;
-      margin: 0;
-      border-radius: 0;
-      color: var(--text);
-      text-shadow: none;
-      border-bottom: 1px solid var(--gold);
-      opacity: 1;
-      transition: border-color 0.3s ease, opacity 0.3s ease;
-    }
-
-    .site-nav-left a:hover,
-    .site-nav a.nav-booking:hover {
-      border-bottom-color: var(--text);
-    }
-
-    .site-nav-left {
-      gap: 1.4rem;
-    }
-
-    /* on phones the top of the photo is the black paper, so navy would
-       disappear; keep the links ivory there */
-    @media (max-width: 600px) {
-      .site-nav-left a,
-      .site-nav a.nav-booking {
-        color: var(--bg);
-        text-shadow: 0 1px 3px rgba(27, 42, 74, 0.9), 0 0 10px rgba(27, 42, 74, 0.6);
-      }
-
-      .site-nav-left a:hover,
-      .site-nav a.nav-booking:hover {
-        border-bottom-color: var(--bg);
-      }
-    }
-
-    /* availability note sitting just left of the booking pill */
-    .landing-nav {
+    /* homepage nav: the same ivory masthead band, links and lettering as
+       every other page, so it reads cleanly over the photo */
+    .home-masthead {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
       align-items: center;
       gap: 1rem;
+      padding: 1.1rem clamp(1.2rem, 3vw, 2.5rem);
+      background: var(--bg);
+    }
+
+    .home-masthead nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem 1.6rem;
+    }
+
+    .home-masthead nav a {
+      color: var(--text);
     }
 
     .landing-status {
       font-family: var(--font-body);
       font-size: 0.7rem;
       font-weight: 400;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.15em;
       text-transform: lowercase;
-      color: var(--bg);
-      text-shadow: 0 1px 3px rgba(27, 42, 74, 0.95), 0 0 10px rgba(27, 42, 74, 0.8);
-      opacity: 0.85;
+      color: var(--gold);
       white-space: nowrap;
+    }
+
+    @media (max-width: 600px) {
+      .home-masthead {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.9rem 1rem 0.8rem;
+      }
+
+      .home-masthead nav {
+        justify-content: center;
+        gap: 0.55rem 1.05rem;
+      }
     }
 
     /* ownership line, pinned small to the bottom of the landing */
@@ -290,24 +284,8 @@
         gap: 2.5rem;
       }
 
-      .landing-status {
-        font-size: 0.6rem;
-      }
     }
 
-    /* very narrow phones: stack the availability note under the booking
-       pill so it clears the faq pill on the left */
-    @media (max-width: 410px) {
-      .landing-nav {
-        flex-direction: column-reverse;
-        align-items: flex-end;
-        gap: 0.7rem;
-      }
-
-      .landing {
-        padding-top: 6.5rem;
-      }
-    }
   </style>
   <!-- Structured data (schema.org JSON-LD) for search engines -->
   <script type="application/ld+json">
@@ -445,14 +423,10 @@
 <body>
 
   <!-- Navigation -->
-  <nav class="site-nav-left">
-    <a href="about.html">about</a>
-    <a href="faq.html">faq</a>
-  </nav>
-  <nav class="site-nav landing-nav">
+  <header class="home-masthead">
+    <nav aria-label="Primary navigation"><a href="about.html">about</a><a href="services.html">services</a><a href="faq.html">faq</a><a href="essays.html">theses</a><a href="booking.html" class="nav-cta">enquire</a></nav>
     <span class="landing-status">currently accepting clients</span>
-    <a href="booking.html" class="nav-booking">book a service</a>
-  </nav>
+  </header>
 
   <section class="landing">
     <div class="landing-bg" role="img" aria-label="Studio wall in charcoal and ink: drawings pinned above a large charcoal portrait of an upturned face on black paper"></div>
